@@ -2,14 +2,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Spring Board Mobile Menu Navigation & Overlay
     const mobileMenuBtn = document.getElementById("mobile-menu");
     const nav = document.querySelector("nav");
+    const header = document.querySelector("header, .header-static");
 
     if (mobileMenuBtn && nav) {
-        // Ensure backdrop overlay exists
+        // Ensure backdrop overlay exists inside header (or body as fallback)
         let navOverlay = document.querySelector(".nav-overlay");
         if (!navOverlay) {
             navOverlay = document.createElement("div");
             navOverlay.className = "nav-overlay";
-            document.body.appendChild(navOverlay);
+            navOverlay.id = "nav-overlay";
+            if (header) {
+                header.insertBefore(navOverlay, nav);
+            } else {
+                document.body.appendChild(navOverlay);
+            }
         }
 
         // Ensure brand header inside mobile drawer with STACKLY Logo & close button
@@ -21,33 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="index.html" class="drawer-logo" aria-label="Stackly Home">
                     <img src="images/logo-dark.webp" alt="STACKLY Logo" class="drawer-logo-img" />
                 </a>
-                <button type="button" class="drawer-close-btn" aria-label="Close menu">
+                <button type="button" class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">
                     <i class="fa-solid fa-xmark" aria-hidden="true"></i>
                 </button>
             `;
             nav.prepend(drawerTop);
         }
 
-        const drawerClose = nav.querySelector(".drawer-close-btn");
-        if (drawerClose) {
-            drawerClose.addEventListener("click", (e) => {
+        // Bind close button handler
+        const drawerCloseBtns = nav.querySelectorAll(".drawer-close-btn");
+        drawerCloseBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 closeMenu();
             });
-        }
+        });
 
         // Add Font Awesome arrow icons to nav links for mobile drawer only (pure FA icons)
         nav.querySelectorAll("ul li a").forEach(a => {
             if (!a.querySelector(".nav-drawer-arrow")) {
                 const arrow = document.createElement("i");
-                arrow.className = "fa-solid fa-arrow-right nav-drawer-arrow";
+                arrow.className = "fa-solid fa-chevron-right nav-drawer-arrow";
                 arrow.setAttribute("aria-hidden", "true");
                 a.appendChild(arrow);
             }
         });
 
-        // Set sequential spring animation indices
-        const menuItems = nav.querySelectorAll("ul > li, .auth-mobile a");
+        // Set sequential spring animation indices for nav list items only
+        const menuItems = nav.querySelectorAll("ul > li");
         menuItems.forEach((item, idx) => {
             item.style.setProperty("--item-idx", idx);
         });
@@ -91,7 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         // Close when clicking overlay
-        navOverlay.addEventListener("click", () => {
+        navOverlay.addEventListener("click", (e) => {
+            e.stopPropagation();
             closeMenu();
         });
 
@@ -102,14 +111,22 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Close when clicking any nav link & allow page transitions smoothly
-        nav.querySelectorAll("ul li a, .auth-mobile a").forEach(a => {
-            a.addEventListener("click", (e) => {
+        // Hash links smooth-close
+        nav.querySelectorAll("ul li a").forEach(a => {
+            a.addEventListener("click", () => {
                 const href = a.getAttribute("href");
                 if (href && href.startsWith("#")) {
                     closeMenu();
-                } else {
-                    closeMenu();
+                }
+            });
+        });
+
+        // Ensure auth buttons work immediately and reliably navigate
+        nav.querySelectorAll(".auth-mobile a").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                const href = btn.getAttribute("href");
+                if (href && !href.startsWith("#")) {
+                    window.location.href = href;
                 }
             });
         });

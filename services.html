@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services - Stackly Business Advisory</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=7.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
@@ -13,20 +13,31 @@
   <header class="header-static">
     <a href="index.html" class="nav-logo"><img src="images/logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
     
-    <div class="menu-toggle" id="mobile-menu">
+    <div class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation">
       <i class="fa-solid fa-bars"></i>
     </div>
 
+    <!-- Mobile Drawer Backdrop Overlay -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
     <nav id="nav-links">
+      <div class="drawer-top">
+        <a href="index.html" class="drawer-logo" aria-label="Stackly Home">
+          <img src="images/logo-dark.webp" alt="STACKLY Logo" class="drawer-logo-img" />
+        </a>
+        <button type="button" class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="service.html" class="active">Service</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html"><span>Home</span><i class="fa-solid fa-chevron-right nav-drawer-arrow"></i></a></li>
+        <li><a href="about.html"><span>About</span><i class="fa-solid fa-chevron-right nav-drawer-arrow"></i></a></li>
+        <li><a href="service.html" class="active"><span>Service</span><i class="fa-solid fa-chevron-right nav-drawer-arrow"></i></a></li>
+        <li><a href="blog.html"><span>Blog</span><i class="fa-solid fa-chevron-right nav-drawer-arrow"></i></a></li>
+        <li><a href="contact.html"><span>Contact</span><i class="fa-solid fa-chevron-right nav-drawer-arrow"></i></a></li>
       </ul>
       <div class="auth-mobile">
-        <a href="login.html" class="btn-login"><i class="fa-regular fa-user"></i> Login</a>
+        <a href="login.html" class="btn-login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
         <a href="register.html" class="btn-signup"><i class="fa-solid fa-user-plus"></i> Signup</a>
       </div>
     </nav>
@@ -303,7 +314,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=7.0"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
