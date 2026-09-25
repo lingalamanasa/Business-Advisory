@@ -553,7 +553,7 @@
         }
         if (!displayName) displayName = 'Managing Partner';
 
-        const displayEmail = email || 'partner@stackly.com';
+        const displayEmail = email || '';
         const initial = displayName.charAt(0).toUpperCase();
 
         document.querySelectorAll('.avatar-initial').forEach(el => {
@@ -568,8 +568,10 @@
         const headerNameEl = document.getElementById('adminHeaderName');
         if (headerNameEl) headerNameEl.textContent = displayName;
 
-        const headerEmailEl = document.getElementById('adminHeaderEmail');
-        if (headerEmailEl) headerEmailEl.textContent = displayEmail;
+        if (displayEmail) {
+          const headerEmailEl = document.getElementById('adminHeaderEmail');
+          if (headerEmailEl) headerEmailEl.textContent = displayEmail;
+        }
 
         // Update sidebar profile
         const sidebarNameEl = document.getElementById('adminSidebarName');
@@ -577,7 +579,7 @@
 
         // Update signature in settings
         const sigInput = document.getElementById('adminSignatureInput');
-        if (sigInput) sigInput.value = `${displayName} (${displayEmail})`;
+        if (sigInput) sigInput.value = displayEmail ? `${displayName} (${displayEmail})` : displayName;
       }
     });
 

@@ -45,7 +45,7 @@
         </div>
         <div style="display: flex; align-items: center; gap: 0.8rem;">
           <span class="user-badge" style="background: rgba(104,159,56,0.15); color: var(--primary-green); font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 20px;">Client Portal</span>
-          <div class="avatar-initial" style="width: 34px; height: 34px; font-size: 0.9rem;">S</div>
+          <div class="avatar-initial" style="width: 34px; height: 34px; font-size: 0.9rem;">E</div>
         </div>
       </div>
       
@@ -59,7 +59,7 @@
       <section id="dashboard" class="content-section active">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
           <div>
-            <h1 class="page-title" style="margin-bottom: 0.3rem;">Welcome back, <span id="welcomeUserName">Sarah</span>! <i class="fa-solid fa-hand" style="color: var(--primary-green); font-size: 1.2rem; margin-left: 0.2rem;"></i></h1>
+            <h1 class="page-title" style="margin-bottom: 0.3rem;">Welcome back, <span id="welcomeUserName">Executive</span>! <i class="fa-solid fa-hand" style="color: var(--primary-green); font-size: 1.2rem; margin-left: 0.2rem;"></i></h1>
             <p style="color: var(--gray-text); font-size: 0.95rem; margin: 0;">Here is a summary of your active advisory engagements, milestones, and deliverable memos.</p>
           </div>
           <button class="btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-briefcase"></i> View All Mandates</button>
@@ -507,7 +507,7 @@
             <div style="display: flex; justify-content: space-between; font-size: 0.85rem; opacity: 0.9;">
               <div>
                 <span style="display: block; font-size: 0.65rem; text-transform: uppercase;">Authorized Signatory</span>
-                <strong>Sarah Jenkins</strong>
+                <strong>Client Executive</strong>
               </div>
               <div>
                 <span style="display: block; font-size: 0.65rem; text-transform: uppercase;">Expires</span>
@@ -533,7 +533,7 @@
               </div>
               <div class="form-group">
                 <label>Corporate Email (For Encrypted Memos)</label>
-                <input type="email" id="userInputEmail" placeholder="name@company.com">
+                <input type="email" id="userInputEmail" placeholder="Enter Corporate Email">
               </div>
               <div class="form-group">
                 <label>Secure Direct Line</label>
@@ -861,7 +861,7 @@
         }
         if (!displayName) displayName = 'Client Executive';
 
-        const displayEmail = email || 'client@stackly.com';
+        const displayEmail = email || '';
         const initial = displayName.charAt(0).toUpperCase();
 
         document.querySelectorAll('.avatar-initial').forEach(el => el.textContent = initial);
@@ -874,8 +874,10 @@
         const headerNameEl = document.getElementById('headerUserName');
         if (headerNameEl) headerNameEl.textContent = displayName;
 
-        const emailEls = document.querySelectorAll('#sidebarUserEmail, #headerUserEmail, .user-info p');
-        emailEls.forEach(el => el.textContent = displayEmail);
+        if (displayEmail) {
+          const emailEls = document.querySelectorAll('#sidebarUserEmail, #headerUserEmail, .user-info p');
+          emailEls.forEach(el => el.textContent = displayEmail);
+        }
 
       }
     });
