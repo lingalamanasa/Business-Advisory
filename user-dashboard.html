@@ -503,15 +503,15 @@
             <form onsubmit="event.preventDefault(); window.location.href='404.html';">
               <div class="form-group">
                 <label>Full Executive Name</label>
-                <input type="text" id="userInputName" value="Sarah Jenkins" required>
+                <input type="text" id="userInputName" placeholder="Enter Full Executive Name">
               </div>
               <div class="form-group">
                 <label>Corporate Email (For Encrypted Memos)</label>
-                <input type="email" id="userInputEmail" value="sarah.jenkins@apexcapital.com" required>
+                <input type="email" id="userInputEmail" placeholder="name@company.com">
               </div>
               <div class="form-group">
                 <label>Secure Direct Line</label>
-                <input type="tel" id="userInputPhone" value="+1 (212) 555-0190" required>
+                <input type="tel" id="userInputPhone" placeholder="+1 (212) 555-0190">
               </div>
               <button type="submit" class="btn-primary" style="margin-top: 0.5rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-save"></i> Save Executive Credentials</button>
             </form>
@@ -836,12 +836,6 @@
         const emailEls = document.querySelectorAll('#sidebarUserEmail, #headerUserEmail, .user-info p');
         emailEls.forEach(el => el.textContent = displayEmail);
 
-        // Update Settings form fields
-        const inputName = document.getElementById('userInputName');
-        if (inputName) inputName.value = displayName;
-
-        const inputEmail = document.getElementById('userInputEmail');
-        if (inputEmail) inputEmail.value = displayEmail;
       }
     });
 
