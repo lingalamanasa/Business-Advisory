@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Stackly Business Advisory</title>
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+    .role-section {
+      margin-bottom: 1.5rem;
+    }
+    .role-section-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark-text);
+      margin-bottom: 0.5rem;
+      display: block;
+      text-align: left;
+    }
+    .role-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .role-card-select {
+      border: 2px solid #eee;
+      border-radius: 10px;
+      padding: 0.8rem 0.6rem;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s;
+      background: #fafafa;
+    }
+    .role-card-select:hover {
+      border-color: #eab308;
+      background: #fff;
+    }
+    .role-card-select.selected {
+      border-color: #eab308;
+      background: #f1f8ed;
+      color: #eab308;
+    }
+    .role-card-select i {
+      font-size: 1.3rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .role-card-select strong {
+      font-size: 0.85rem;
+      display: block;
+    }
+    .role-card-select span {
+      font-size: 0.72rem;
+      color: #666;
+    }
+    .nav-logo-img {
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+    .reg-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 520px) {
+      .reg-two-col {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .auth-container {
+        padding: 1.5rem 1rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body class="auth-body">
+  <div class="auth-container" style="max-width: 520px;">
+    <div class="auth-header">
+      <a href="index.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+      <h2>Register Corporate Mandate</h2>
+      <p>Initiate privileged executive portal access</p>
+    </div>
+
+    <!-- Role Selection -->
+    <div class="role-section">
+      <label class="role-section-label"><i class="fa-solid fa-id-badge"></i> Select Account Tier</label>
+      <div class="role-cards-grid">
+        <div class="role-card-select selected" id="regRoleUser" onclick="setRegRole('user')">
+          <i class="fa-solid fa-user-tie"></i>
+          <strong>Client Executive</strong>
+          <span>Corporate Client Portal</span>
+        </div>
+        <div class="role-card-select" id="regRoleAdmin" onclick="setRegRole('admin')">
+          <i class="fa-solid fa-chess-knight"></i>
+          <strong>Managing Partner</strong>
+          <span>Partner Practice Portal</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="auth-form" id="signupForm" onsubmit="handleAuthRegister(event)">
+      <div class="form-group">
+        <label for="regName">Full Legal Name</label>
+        <div class="input-with-icon">
+          <i class="fa-regular fa-user"></i>
+          <input type="text" id="regName" placeholder="Enter full legal name" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="regEmail">Corporate Email Address</label>
+        <div class="input-with-icon">
+          <i class="fa-regular fa-envelope"></i>
+          <input type="email" id="regEmail" placeholder="name@company.com" required>
+        </div>
+      </div>
+
+      <div class="reg-two-col">
+        <div class="form-group">
+          <label for="regPassword">Portal Passcode</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="regPassword" placeholder="Min 8 characters" required minlength="8">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="regConfirm">Confirm Passcode</label>
+          <div class="input-with-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+            <input type="password" id="regConfirm" placeholder="Re-enter passcode" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-options">
+        <label class="remember-me" style="font-size: 0.82rem; line-height: 1.4;">
+          <input type="checkbox" required checked> I accept the Mutual Non-Disclosure Agreement (NDA) and Terms of Advisory Engagement
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" formnovalidate onclick="handleAuthRegister(event)">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+      </button>
+
+      <p class="auth-redirect" style="margin-top: 1.2rem;">
+        Already registered? <a href="login.html">Sign in here</a>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    let regRole = 'user';
+    function setRegRole(role) {
+      regRole = role;
+      document.getElementById('regRoleUser').classList.toggle('selected', role === 'user');
+      document.getElementById('regRoleAdmin').classList.toggle('selected', role === 'admin');
+    }
+
+    function handleAuthRegister(e) {
+      if (e) e.preventDefault();
+      const pwd = document.getElementById('regPassword') ? document.getElementById('regPassword').value : '';
+      const conf = document.getElementById('regConfirm') ? document.getElementById('regConfirm').value : '';
+      if (pwd && conf && pwd !== conf) {
+        alert("Passcodes do not match. Please verify.");
+        return;
+      }
+
+      const emailInput = document.getElementById('regEmail');
+      const email = emailInput ? emailInput.value.trim() : '';
+      const nameInput = document.getElementById('regName');
+      const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : (email ? email.split('@')[0] : '');
+
+      if (email) {
+        localStorage.setItem('stackly_name', name);
+        localStorage.setItem('stackly_email', email);
+        localStorage.setItem('last_stackly_email', email);
+      }
+      localStorage.setItem('stackly_role', regRole);
+
+      window.location.href = 'login.html';
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 800, once: true });
+    }
+  </script>
+</body>
+</html>

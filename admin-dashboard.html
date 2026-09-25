@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Stackly Business Advisory</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="admin-dashboard.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+        <button class="sidebar-close" id="closeSidebar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="javascript:void(0)" class="nav-item active" onclick="showAdminSection('overview', this)"><i class="fa-solid fa-chart-pie"></i> Practice KPIs</a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showAdminSection('products', this)"><i class="fa-solid fa-briefcase"></i> Practice Catalog</a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showAdminSection('orders', this)"><i class="fa-solid fa-handshake"></i> Mandates Pipeline</a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showAdminSection('customers', this)"><i class="fa-solid fa-building-user"></i> Corporate Clients</a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showAdminSection('inquiries', this)"><i class="fa-solid fa-envelope-open-text"></i> Client Inquiries</a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showAdminSection('settings', this)"><i class="fa-solid fa-sliders"></i> Practice Settings</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user-profile">
+          <div class="avatar-initial" style="border-color: #3498db; color: #3498db;">A</div>
+          <div class="sidebar-user-info">
+            <h4 id="adminSidebarName">Dr. Arthur Vance</h4>
+            <p>Managing Partner (M&A)</p>
+          </div>
+        </div>
+        <a href="login.html" class="nav-item logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- MOBILE TOPBAR WITH STACKLY LOGO -->
+      <div class="mobile-topbar">
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <button class="menu-toggle" id="openAdminSidebarMobile" aria-label="Open Navigation"><i class="fa-solid fa-bars"></i></button>
+          <a href="admin-dashboard.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <span class="user-badge" style="background: rgba(52,152,219,0.15); color: #3498db; font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 20px;">Managing Partner</span>
+          <div class="avatar-initial" style="width: 34px; height: 34px; font-size: 0.9rem; border-color: #3498db; color: #3498db;">A</div>
+        </div>
+      </div>
+      
+      <!-- Top Header -->
+      <header class="top-header">
+        <button class="menu-toggle" id="openSidebar"><i class="fa-solid fa-bars"></i></button>
+        <div style="flex: 1;"><h2 class="page-title" style="margin-bottom: 0;">Managing Partner Executive Suite</h2></div>
+      </header>
+
+      <!-- SECTION 1: Practice Overview / KPIs -->
+      <section id="overview" class="content-section active">
+        <div style="margin-bottom: 1.5rem;">
+          <h1 class="page-title" style="margin-bottom: 0.3rem;">Welcome back, <span id="adminWelcomeName">Partner</span>! 👋</h1>
+          <p style="color: var(--gray-text); font-size: 0.95rem; margin: 0;">Global Practice Intelligence & Senior Managing Partner Command Suite</p>
+        </div>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="fa-solid fa-vault"></i></div>
+            <div class="stat-details">
+              <h3>$2.48B</h3>
+              <p>Total Advisory Volume</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="stat-details">
+              <h3>28</h3>
+              <p>Active Live Mandates</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange"><i class="fa-solid fa-building"></i></div>
+            <div class="stat-details">
+              <h3>184</h3>
+              <p>Corporate Clients</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="stat-details">
+              <h3>98.4%</h3>
+              <p>Mandate Success Rate</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Pipeline Engagements -->
+        <div class="table-container">
+          <div class="table-header">
+            <h3>Priority Deal Pipelines</h3>
+            <button class="btn-view-all" onclick="window.location.href='404.html'">View Complete Pipeline</button>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Mandate ID</th>
+                <th>Corporate Client</th>
+                <th>Practice Lead</th>
+                <th>Retainer / Fee</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>#ADV-9024</strong></td>
+                <td>Apex Global Capital (Cross-Border M&A)</td>
+                <td>Dr. Arthur Vance</td>
+                <td><strong>$85,000</strong></td>
+                <td><span class="status processing">Due Diligence</span></td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'">Update Status</button></td>
+              </tr>
+              <tr>
+                <td><strong>#ADV-9018</strong></td>
+                <td>Zenith Financial (Debt Restructuring)</td>
+                <td>Elena Rostova</td>
+                <td><strong>$60,000</strong></td>
+                <td><span class="status delivered">Completed</span></td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'">Update Status</button></td>
+              </tr>
+              <tr>
+                <td><strong>#ADV-9005</strong></td>
+                <td>Horizon BioTech (IPO Governance Audit)</td>
+                <td>Marcus Sterling</td>
+                <td><strong>$45,000</strong></td>
+                <td><span class="status processing">Board Review</span></td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'">Update Status</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Practice Catalog -->
+      <section id="products" class="content-section" data-aos="fade-up">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h1 class="page-title" style="margin-bottom: 0.3rem;">Practice Offerings & Advisory Frameworks</h1>
+            <p style="color: var(--gray-text); font-size: 0.95rem; margin: 0;">Manage core advisory capabilities and client engagement modules</p>
+          </div>
+          <button class="btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-plus"></i> Add Practice Module</button>
+        </div>
+
+        <!-- Search Bar -->
+        <div style="margin-bottom: 1.5rem; position: relative; max-width: 400px;">
+          <input type="text" id="practiceSearchInput" onkeyup="filterPracticeCatalog()" placeholder="Search practice or methodology..." style="width: 100%; padding: 0.8rem 2.5rem 0.8rem 1rem; border: 1px solid var(--border-color); border-radius: 10px;">
+          <i class="fa-solid fa-magnifying-glass" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #888;"></i>
+        </div>
+
+        <div class="table-container">
+          <table id="practiceCatalogTable">
+            <thead>
+              <tr>
+                <th>Practice Discipline</th>
+                <th>Category</th>
+                <th>Standard Retainer</th>
+                <th>Active Engagements</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="practiceCatalogTbody">
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_114.webp" class="product-thumb" alt="M&A Deal Advisory">
+                    <div>
+                      <strong>M&A Deal Architecture & Valuation</strong>
+                      <div style="font-size: 0.75rem; color: #888;">DCF, LBO & Synergies Analysis</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Transaction Advisory</td>
+                <td><strong>$75,000 - $150,000</strong></td>
+                <td><span class="status processing">12 Active</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_115.webp" class="product-thumb" alt="Corporate Strategy">
+                    <div>
+                      <strong>Capital Allocation & Growth Strategy</strong>
+                      <div style="font-size: 0.75rem; color: #888;">Portfolio Diagnostics & Capex Optimization</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Corporate Strategy</td>
+                <td><strong>$60,000 / Quarter</strong></td>
+                <td><span class="status delivered">8 Active</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_116.webp" class="product-thumb" alt="Restructuring">
+                    <div>
+                      <strong>Balance Sheet & Operational Turnaround</strong>
+                      <div style="font-size: 0.75rem; color: #888;">Working Capital & Debt Maturity Sprints</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Restructuring</td>
+                <td><strong>$50,000 - $120,000</strong></td>
+                <td><span class="status delivered">5 Active</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_117.webp" class="product-thumb" alt="Board Governance">
+                    <div>
+                      <strong>Boardroom Governance & Risk Audit</strong>
+                      <div style="font-size: 0.75rem; color: #888;">Fiduciary Standards & SEC Compliance</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Governance</td>
+                <td><strong>$40,000 / Annual</strong></td>
+                <td><span class="status processing">3 Active</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Mandates Pipeline -->
+      <section id="orders" class="content-section" data-aos="fade-up">
+        <h1 class="page-title">Client Mandates Pipeline</h1>
+
+        <div class="filter-pills-bar">
+          <button class="filter-pill active" onclick="filterPipeline('all', this)">All Pipelines (4)</button>
+          <button class="filter-pill" onclick="filterPipeline('active', this)">In Progress (2)</button>
+          <button class="filter-pill" onclick="filterPipeline('completed', this)">Completed (2)</button>
+        </div>
+
+        <div class="table-container">
+          <table id="mandatesTable">
+            <thead>
+              <tr>
+                <th>Mandate ID</th>
+                <th>Client Enterprise</th>
+                <th>Deliverable Scope</th>
+                <th>Fee Note</th>
+                <th>Pipeline Phase</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-status="active">
+                <td><strong>#ADV-9024</strong></td>
+                <td>Apex Global Capital</td>
+                <td>Cross-Border M&A Synergies Valuation</td>
+                <td><strong>$85,000</strong></td>
+                <td><span class="status processing">Due Diligence</span></td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
+              </tr>
+              <tr data-status="active">
+                <td><strong>#ADV-9011</strong></td>
+                <td>Vanguard Industrial Group</td>
+                <td>Working Capital Restructuring Sprint</td>
+                <td><strong>$65,000</strong></td>
+                <td><span class="status processing">Modeling Sprint</span></td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
+              </tr>
+              <tr data-status="completed">
+                <td><strong>#ADV-8874</strong></td>
+                <td>Zenith Financial</td>
+                <td>Debt Maturity Realignment</td>
+                <td><strong>$60,000</strong></td>
+                <td><span class="status delivered">Completed</span></td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
+              </tr>
+              <tr data-status="completed">
+                <td><strong>#ADV-8853</strong></td>
+                <td>Horizon BioTech</td>
+                <td>Pre-IPO Governance & Audit Charter</td>
+                <td><strong>$42,500</strong></td>
+                <td><span class="status delivered">Completed</span></td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 4: Corporate Clients Directory -->
+      <section id="customers" class="content-section" data-aos="fade-up">
+        <h1 class="page-title">Corporate Client Accounts</h1>
+        
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Client Organization</th>
+                <th>Primary Signatory</th>
+                <th>Tier</th>
+                <th>Total Value Advised</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Apex Global Capital Holdings LLC</strong></td>
+                <td>Sarah Jenkins (Managing Director)</td>
+                <td><span class="status delivered">Tier 1 Retainer</span></td>
+                <td>$380M Transaction Scope</td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'">View Profile</button></td>
+              </tr>
+              <tr>
+                <td><strong>Zenith Financial Partners</strong></td>
+                <td>Marcus Sterling (Chairman)</td>
+                <td><span class="status delivered">Tier 1 Retainer</span></td>
+                <td>$120M Credit Restructuring</td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'">View Profile</button></td>
+              </tr>
+              <tr>
+                <td><strong>Vanguard Industrial Group</strong></td>
+                <td>Robert Vance (Chief Executive Officer)</td>
+                <td><span class="status processing">Sprint Mandate</span></td>
+                <td>$90M Facility Optimization</td>
+                <td><button class="action-btn" onclick="window.location.href='404.html'">View Profile</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 5: Client Inquiries Desk -->
+      <section id="inquiries" class="content-section" data-aos="fade-up">
+        <h1 class="page-title">Confidential Client Inquiries</h1>
+        
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Ref #</th>
+                <th>Organization & Inquirer</th>
+                <th>Topic / Scope</th>
+                <th>Submitted</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inquiriesTbody">
+              <tr>
+                <td><strong>#INQ-4821</strong></td>
+                <td>Horizon BioTech (David Sterling, CFO)</td>
+                <td>Emergency Valuation Sensitivity Review</td>
+                <td>2 Hours Ago</td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-reply"></i> Reply</button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-box-archive"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>#INQ-4790</strong></td>
+                <td>Continental Logistics Corp (Legal Counsel)</td>
+                <td>Antitrust Regulatory Advisory Request</td>
+                <td>Yesterday</td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-reply"></i> Reply</button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-box-archive"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 6: Practice Settings -->
+      <section id="settings" class="content-section" data-aos="fade-up">
+        <h1 class="page-title">Practice Security & Governance Settings</h1>
+        
+        <div style="background: white; padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color); max-width: 650px;">
+          <form onsubmit="event.preventDefault(); window.location.href='404.html';">
+            <div class="form-group" style="margin-bottom: 1.2rem;">
+              <label style="display: block; font-weight: 700; margin-bottom: 0.4rem;">Managing Partner Signature</label>
+              <input type="text" id="adminSignatureInput" value="Dr. Arthur Vance (Senior Partner - M&A)" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;">
+            </div>
+            <div class="form-group" style="margin-bottom: 1.2rem;">
+              <label style="display: block; font-weight: 700; margin-bottom: 0.4rem;">Discreet Encryption Key Expiry</label>
+              <select style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;">
+                <option selected>30 Days (Standard Corporate Vault)</option>
+                <option>60 Days (Extended Due Diligence)</option>
+                <option>90 Days (Board Term)</option>
+              </select>
+            </div>
+            <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; cursor: pointer;">
+              <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--primary-green);">
+              Enforce 2-Factor Biometric Partner Authorization on all M&A Data Room disclosures
+            </label>
+            <button type="submit" class="btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-shield-halved"></i> Save Settings</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL: Update Mandate Status -->
+  <div class="dash-modal-overlay" id="mandateStatusModal">
+    <div class="dash-modal-card">
+      <div class="dash-modal-header">
+        <h3><i class="fa-solid fa-list-check" style="color: var(--primary-green);"></i> Update Mandate Pipeline Status</h3>
+        <button class="dash-modal-close" onclick="closeAdminModal('mandateStatusModal')">&times;</button>
+      </div>
+      <form onsubmit="handleUpdateMandateStatus(event)">
+        <div class="dash-modal-body">
+          <p>Mandate: <strong id="modalMandateId">#ADV-9024</strong></p>
+          <div class="form-group" style="margin-top: 1rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 0.4rem;">Pipeline Phase Status</label>
+            <select id="modalStatusSelect" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;">
+              <option value="Discovery Phase">Phase 1: Discovery Audit</option>
+              <option value="Modeling Sprint">Phase 2: Modeling Sprint</option>
+              <option value="Due Diligence" selected>Phase 3: Due Diligence & Valuation</option>
+              <option value="Board Review">Phase 4: Boardroom Presentation</option>
+              <option value="Completed">Completed & Delivered</option>
+            </select>
+          </div>
+        </div>
+        <div class="dash-modal-footer">
+          <button type="button" class="action-btn" onclick="closeAdminModal('mandateStatusModal')">Cancel</button>
+          <button type="submit" class="btn-primary">Update Status</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: Add Practice Module -->
+  <div class="dash-modal-overlay" id="addPracticeModal">
+    <div class="dash-modal-card">
+      <div class="dash-modal-header">
+        <h3><i class="fa-solid fa-briefcase" style="color: var(--primary-green);"></i> Add Practice Capability</h3>
+        <button class="dash-modal-close" onclick="closeAdminModal('addPracticeModal')">&times;</button>
+      </div>
+      <form onsubmit="handleCreatePractice(event)">
+        <div class="dash-modal-body">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 0.4rem;">Practice Title *</label>
+            <input type="text" id="newPracticeTitle" placeholder="e.g. Cross-Border Tax Structuring" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 0.4rem;">Discipline Category *</label>
+            <input type="text" id="newPracticeCat" placeholder="e.g. Corporate Finance" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;">
+          </div>
+          <div class="form-group">
+            <label style="display: block; font-weight: 700; margin-bottom: 0.4rem;">Retainer Fee Bracket *</label>
+            <input type="text" id="newPracticeFee" placeholder="e.g. $50,000 / Sprint" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;">
+          </div>
+        </div>
+        <div class="dash-modal-footer">
+          <button type="button" class="action-btn" onclick="closeAdminModal('addPracticeModal')">Cancel</button>
+          <button type="submit" class="btn-primary">Save Practice</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: Reply to Inquiry -->
+  <div class="dash-modal-overlay" id="replyModal">
+    <div class="dash-modal-card">
+      <div class="dash-modal-header">
+        <h3><i class="fa-solid fa-reply" style="color: var(--primary-green);"></i> Dispatch Partner Memo</h3>
+        <button class="dash-modal-close" onclick="closeAdminModal('replyModal')">&times;</button>
+      </div>
+      <form onsubmit="handleSendReply(event)">
+        <div class="dash-modal-body">
+          <p>Recipient: <strong id="replyClientName">Client</strong> (<span id="replyInqId">#INQ</span>)</p>
+          <div class="form-group" style="margin-top: 1rem;">
+            <label style="display: block; font-weight: 700; margin-bottom: 0.4rem;">Managing Partner Dispatch Memo</label>
+            <textarea id="replyMsg" rows="5" placeholder="Draft your confidential executive response..." required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;"></textarea>
+          </div>
+        </div>
+        <div class="dash-modal-footer">
+          <button type="button" class="action-btn" onclick="closeAdminModal('replyModal')">Cancel</button>
+          <button type="submit" class="btn-primary">Send Encrypted Dispatch</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Element -->
+  <div class="dash-toast" id="adminToast">
+    <i class="fa-solid fa-circle-check"></i> <span id="adminToastMsg">Success</span>
+  </div>
+
+  <script>
+    // --- Dynamic Partner Profile Loading ---
+    document.addEventListener("DOMContentLoaded", () => {
+      const email = localStorage.getItem('stackly_email') || localStorage.getItem('userEmail') || localStorage.getItem('email') || localStorage.getItem('adminEmail');
+      const storedName = localStorage.getItem('stackly_name') || localStorage.getItem('userName') || localStorage.getItem('username');
+
+      if (email || storedName) {
+        let displayName = storedName;
+        if (!displayName || displayName === 'Dr. Arthur Vance' || displayName === 'Partner') {
+          if (email) {
+            displayName = email.split('@')[0];
+          }
+        }
+        if (!displayName) displayName = 'Managing Partner';
+
+        const displayEmail = email || 'partner@stackly.com';
+        const initial = displayName.charAt(0).toUpperCase();
+
+        document.querySelectorAll('.avatar-initial').forEach(el => {
+          el.textContent = initial;
+        });
+
+        // Update greeting banner in Executive Suite
+        const welcomeEl = document.getElementById('adminWelcomeName');
+        if (welcomeEl) welcomeEl.textContent = displayName;
+
+        // Update top header profile
+        const headerNameEl = document.getElementById('adminHeaderName');
+        if (headerNameEl) headerNameEl.textContent = displayName;
+
+        const headerEmailEl = document.getElementById('adminHeaderEmail');
+        if (headerEmailEl) headerEmailEl.textContent = displayEmail;
+
+        // Update sidebar profile
+        const sidebarNameEl = document.getElementById('adminSidebarName');
+        if (sidebarNameEl) sidebarNameEl.textContent = displayName;
+
+        // Update signature in settings
+        const sigInput = document.getElementById('adminSignatureInput');
+        if (sigInput) sigInput.value = `${displayName} (${displayEmail})`;
+      }
+    });
+
+    // --- Navigation ---
+    const sidebar = document.getElementById('sidebar');
+    const openBtn = document.getElementById('openSidebar');
+    const openBtnMobile = document.getElementById('openAdminSidebarMobile');
+    const closeBtn = document.getElementById('closeSidebar');
+
+    function openAdminSidebarDrawer() {
+      if (sidebar) {
+        sidebar.classList.add('active');
+        if (window.innerWidth <= 992) document.body.style.overflow = 'hidden';
+      }
+    }
+    if (openBtn) openBtn.addEventListener('click', openAdminSidebarDrawer);
+    if (openBtnMobile) openBtnMobile.addEventListener('click', openAdminSidebarDrawer);
+    if (closeBtn && sidebar) {
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    function showAdminSection(sectionId, element) {
+      document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+
+      const target = document.getElementById(sectionId);
+      if (target) target.classList.add('active');
+
+      if (element) {
+        element.classList.add('active');
+      } else {
+        document.querySelectorAll('.nav-item').forEach(item => {
+          if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(sectionId)) {
+            item.classList.add('active');
+          }
+        });
+      }
+
+      if (window.innerWidth <= 992 && sidebar) {
+        sidebar.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // --- Modals ---
+    function closeAdminModal(id) {
+      const m = document.getElementById(id);
+      if (m) m.classList.remove('active');
+    }
+
+    let activeMandateRow = null;
+    function openMandateStatusModal(mandateId, currentStatus) {
+      document.getElementById('modalMandateId').textContent = '#' + mandateId;
+      document.getElementById('modalStatusSelect').value = currentStatus;
+      document.getElementById('mandateStatusModal').classList.add('active');
+    }
+    function handleUpdateMandateStatus(e) {
+      e.preventDefault();
+      const status = document.getElementById('modalStatusSelect').value;
+      closeAdminModal('mandateStatusModal');
+      showAdminToast(`Mandate status updated to "${status}"!`);
+    }
+
+    function openAddPracticeModal() {
+      document.getElementById('addPracticeModal').classList.add('active');
+    }
+    function handleCreatePractice(e) {
+      e.preventDefault();
+      const title = document.getElementById('newPracticeTitle').value.trim();
+      const cat = document.getElementById('newPracticeCat').value.trim();
+      const fee = document.getElementById('newPracticeFee').value.trim();
+
+      const tbody = document.getElementById('practiceCatalogTbody');
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>
+          <div class="product-cell">
+            <img src="./images/img_122.webp" class="product-thumb" alt="${title}">
+            <div>
+              <strong>${title}</strong>
+              <div style="font-size: 0.75rem; color: #888;">Executive Practice Module</div>
+            </div>
+          </div>
+        </td>
+        <td>${cat}</td>
+        <td><strong>${fee}</strong></td>
+        <td><span class="status processing">New Pipeline</span></td>
+        <td>
+          <button class="action-btn" onclick="editPracticeItem(this)"><i class="fa-solid fa-pen-to-square"></i></button>
+          <button class="action-btn" style="color: var(--danger);" onclick="deletePracticeItem(this)"><i class="fa-solid fa-trash-can"></i></button>
+        </td>
+      `;
+      tbody.prepend(tr);
+      closeAdminModal('addPracticeModal');
+      showAdminToast(`Practice module "${title}" added to active offerings!`);
+    }
+
+    function editPracticeItem(btn) {
+      const row = btn.closest('tr');
+      const title = row.querySelector('strong').textContent;
+      const newTitle = prompt('Update practice module title:', title);
+      if (newTitle) {
+        row.querySelector('strong').textContent = newTitle;
+        showAdminToast('Practice module updated.');
+      }
+    }
+
+    function deletePracticeItem(btn) {
+      if (confirm('Decommission this practice module from the active catalog?')) {
+        btn.closest('tr').remove();
+        showAdminToast('Practice module removed.');
+      }
+    }
+
+    function filterPracticeCatalog() {
+      const q = document.getElementById('practiceSearchInput').value.toLowerCase();
+      document.querySelectorAll('#practiceCatalogTbody tr').forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    }
+
+    function filterPipeline(type, pill) {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      document.querySelectorAll('#mandatesTable tbody tr').forEach(row => {
+        if (type === 'all' || row.getAttribute('data-status') === type) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    function viewClientProfile(org, signatory, email) {
+      alert(`Client Enterprise: ${org}\nAuthorized Signatory: ${signatory}\nDirect Contact: ${email}\nStatus: Cleared Under Mutual NDA`);
+    }
+
+    function openReplyModal(inqId, clientName) {
+      document.getElementById('replyInqId').textContent = inqId;
+      document.getElementById('replyClientName').textContent = clientName;
+      document.getElementById('replyModal').classList.add('active');
+    }
+    function handleSendReply(e) {
+      e.preventDefault();
+      closeAdminModal('replyModal');
+      showAdminToast('Encrypted partner dispatch transmitted to client.');
+    }
+    function archiveInquiry(btn) {
+      if (confirm('Archive this client inquiry?')) {
+        btn.closest('tr').remove();
+        showAdminToast('Inquiry archived.');
+      }
+    }
+
+    function showAdminToast(msg) {
+      const t = document.getElementById('adminToast');
+      const s = document.getElementById('adminToastMsg');
+      if (t && s) {
+        s.textContent = msg;
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 3000);
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 800, once: true });
+    }
+  </script>
+</body>
+</html>

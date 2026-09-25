@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Stackly Business Advisory</title>
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+    .role-section {
+      margin-bottom: 1.5rem;
+    }
+    .role-section-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark-text);
+      margin-bottom: 0.5rem;
+      display: block;
+      text-align: left;
+    }
+    .role-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+    .role-card-select {
+      border: 2px solid #eee;
+      border-radius: 10px;
+      padding: 0.9rem 0.6rem;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s;
+      background: #fafafa;
+    }
+    .role-card-select:hover {
+      border-color: #eab308;
+      background: #fff;
+    }
+    .role-card-select.selected {
+      border-color: #eab308;
+      background: #f1f8ed;
+      color: #eab308;
+    }
+    .role-card-select i {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .role-card-select strong {
+      font-size: 0.85rem;
+      display: block;
+    }
+    .role-card-select span {
+      font-size: 0.72rem;
+      color: #666;
+    }
+    .btn-register-action {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.9rem;
+      background: transparent;
+      color: #eab308;
+      border: 2px solid #eab308;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 1rem;
+      transition: all 0.3s;
+    }
+    .btn-register-action:hover {
+      background: #eab308;
+      color: #fff;
+    }
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+    }
+    .nav-logo-img {
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body class="auth-body">
+  <div class="auth-container">
+    <div class="auth-header">
+      <a href="index.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+      <h2>Advisory Portal Login</h2>
+      <p>Select your authorized credential tier below</p>
+    </div>
+
+    <!-- Role Selection -->
+    <div class="role-section">
+      <label class="role-section-label"><i class="fa-solid fa-id-badge"></i> Select Advisory Portal Role</label>
+      <div class="role-cards-grid">
+        <div class="role-card-select selected" id="roleUserCard" onclick="selectRole('user')">
+          <i class="fa-solid fa-user-tie"></i>
+          <strong>Client Executive</strong>
+          <span>Corporate Client Portal</span>
+        </div>
+        <div class="role-card-select" id="roleAdminCard" onclick="selectRole('admin')">
+          <i class="fa-solid fa-chess-knight"></i>
+          <strong>Managing Partner</strong>
+          <span>Practice Admin Portal</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="auth-form" id="loginForm" onsubmit="handleAuthLogin(event)">
+      <div class="form-group">
+        <label for="loginEmail">Corporate Email Address</label>
+        <div class="input-with-icon">
+          <i class="fa-regular fa-envelope"></i>
+          <input type="email" id="loginEmail" placeholder="name@company.com" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="loginPassword">Portal Security Passcode</label>
+        <div class="input-with-icon">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="loginPassword" placeholder="Enter security passcode" required>
+        </div>
+      </div>
+
+      <div class="form-options">
+        <label class="remember-me">
+          <input type="checkbox" checked> Remember Device
+        </label>
+        <a href="404.html" class="forgot-pass">Forgot Key?</a>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" id="loginSubmitBtn">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+      </button>
+
+      <a href="register.html" class="btn-register-action">
+        <i class="fa-solid fa-user-plus"></i> Register New Corporate Mandate
+      </a>
+    </form>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal-overlay" id="forgotModal">
+    <div class="modal-box">
+      <h3 style="margin-bottom: 0.8rem; font-size: 1.3rem;">Reset Security Credentials</h3>
+      <p style="font-size: 0.9rem; color: #666; margin-bottom: 1.2rem;">Enter your verified corporate email to receive a single-use login token.</p>
+      <form onsubmit="handleForgotSubmit(event)">
+        <div class="form-group" style="margin-bottom: 1.2rem;">
+          <input type="email" id="forgotEmail" placeholder="name@company.com" required style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px;">
+        </div>
+        <div style="display: flex; gap: 0.8rem; justify-content: flex-end;">
+          <button type="button" onclick="closeForgotModal()" style="padding: 0.6rem 1rem; border: 1px solid #ddd; background: #eee; border-radius: 6px; cursor: pointer;">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="padding: 0.6rem 1.2rem;">Send Reset Key</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let currentRole = 'user';
+
+    function selectRole(role) {
+      currentRole = role;
+      const userCard = document.getElementById('roleUserCard');
+      const adminCard = document.getElementById('roleAdminCard');
+      const submitBtn = document.getElementById('loginSubmitBtn');
+
+      if (role === 'user') {
+        userCard.classList.add('selected');
+        adminCard.classList.remove('selected');
+        submitBtn.innerHTML = '<i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In';
+      } else {
+        adminCard.classList.add('selected');
+        userCard.classList.remove('selected');
+        submitBtn.innerHTML = '<i class="fa-solid fa-shield-halved"></i> Sign In';
+      }
+    }
+
+    function handleAuthLogin(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      
+      if (email) {
+        localStorage.setItem('stackly_email', email);
+        const prevEmail = localStorage.getItem('last_stackly_email');
+        const prevName = localStorage.getItem('stackly_name');
+        
+        if (prevEmail === email && prevName && prevName !== 'Sarah' && prevName !== 'Sarah Jenkins' && prevName !== 'Dr. Arthur Vance') {
+          // preserve previously registered name for this email
+        } else {
+          const raw = email.split('@')[0];
+          localStorage.setItem('stackly_name', raw);
+        }
+        localStorage.setItem('last_stackly_email', email);
+      }
+      localStorage.setItem('stackly_role', currentRole);
+
+      if (currentRole === 'admin') {
+        window.location.href = 'admin-dashboard.html';
+      } else {
+        window.location.href = 'user-dashboard.html';
+      }
+    }
+
+    function openForgotModal() {
+      document.getElementById('forgotModal').classList.add('active');
+    }
+    function closeForgotModal() {
+      document.getElementById('forgotModal').classList.remove('active');
+    }
+    function handleForgotSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('forgotEmail').value;
+      alert(`A secure login key has been dispatched to ${email}.`);
+      closeForgotModal();
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 800, once: true });
+    }
+  </script>
+</body>
+</html>

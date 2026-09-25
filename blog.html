@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Stackly Business Advisory</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+    .cat-ribbon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+    }
+    .cat-ribbon-item {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--dark-text);
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      transition: all 0.3s;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cat-ribbon-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(104,159,56,0.15);
+      border-color: var(--primary-green);
+      color: var(--primary-green);
+    }
+    .cat-ribbon-item i {
+      font-size: 1.5rem;
+    }
+    .featured-post-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+      margin-bottom: 3rem;
+      border: 1px solid var(--border-color);
+    }
+    @media (max-width: 768px) {
+      .featured-post-card { grid-template-columns: 1fr; }
+    }
+    .featured-post-img img {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+    }
+    .featured-post-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-post-content h3 {
+      font-size: 1.8rem;
+      margin: 0.8rem 0;
+      color: var(--dark-text);
+    }
+    .featured-post-content p {
+      color: var(--gray-text);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .main-blog-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+    }
+    @media (max-width: 900px) {
+      .main-blog-layout { grid-template-columns: 1fr; }
+    }
+    .blog-sidebar-widget {
+      background: #ffffff;
+      padding: 1.8rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      margin-bottom: 2rem;
+      border: 1px solid var(--border-color);
+    }
+    .blog-sidebar-widget h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid #eee;
+    }
+    .blog-sidebar-widget h4::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--primary-green);
+    }
+    .recipe-meta-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: #666;
+      background: #f1f8ed;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body class="page-blog">
+  <!-- HEADER -->
+  <header class="header-static">
+    <a href="index.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+    <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+    <nav id="nav-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="auth-mobile">
+        <a href="login.html" class="btn-login"><i class="fa-regular fa-user"></i> Login</a>
+        <a href="register.html" class="btn-signup"><i class="fa-solid fa-user-plus"></i> Signup</a>
+      </div>
+    </nav>
+    <div class="auth-desktop">
+      <a href="login.html" class="btn-login"><i class="fa-regular fa-user"></i> Login</a>
+      <a href="register.html" class="btn-signup"><i class="fa-solid fa-user-plus"></i> Signup</a>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px;">
+    
+    <!-- 1. BLOG HERO -->
+    <section class="container" style="margin-bottom: 2rem;">
+      <div class="blog-hero" style="margin-bottom: 0;" data-aos="fade-up">
+        <span class="subtitle">BUSINESS ADVISORY & THOUGHT LEADERSHIP</span>
+        <h1>Strategic Perspectives. M&A Outlooks.<br><span class="highlight">Architecting High-Value Scale.</span></h1>
+        <p>Explore authoritative research papers, boardroom governance guides, and macroeconomic analyses authored by our Senior Advisory Partners.</p>
+      </div>
+    </section>
+
+    <!-- 2. CATEGORIES RIBBON -->
+    <section class="container section-padding" style="padding-top: 1rem; padding-bottom: 2.5rem;">
+      <div class="cat-ribbon-grid" data-aos="fade-up" data-aos-delay="100">
+        <a href="404.html" class="cat-ribbon-item"><i class="fa-solid fa-handshake" style="color: #e74c3c;"></i> M&A & Private Equity</a>
+        <a href="404.html" class="cat-ribbon-item"><i class="fa-solid fa-chart-line" style="color: var(--primary-green);"></i> Capital Scaling</a>
+        <a href="404.html" class="cat-ribbon-item"><i class="fa-solid fa-shield-halved" style="color: #f39c12;"></i> Board Governance</a>
+        <a href="404.html" class="cat-ribbon-item"><i class="fa-solid fa-gears" style="color: #9b59b6;"></i> Operational Excellence</a>
+        <a href="404.html" class="cat-ribbon-item"><i class="fa-solid fa-seedling" style="color: #27ae60;"></i> ESG & Sustainability</a>
+        <a href="404.html" class="cat-ribbon-item"><i class="fa-solid fa-microchip" style="color: #3498db;"></i> Digital Transformation</a>
+      </div>
+    </section>
+
+    <!-- 3. FEATURED POST / MANAGING PARTNER'S SPOTLIGHT -->
+    <section class="container section-padding" style="padding-top: 0;">
+      <div class="section-header" style="margin-bottom: 2rem;">
+        <span class="subtitle">SENIOR PARTNER'S ESSAY</span>
+        <h2 style="font-size: 2rem; color: var(--dark-text);">Editor's Featured Executive Brief</h2>
+      </div>
+      <div class="featured-post-card" data-aos="fade-up">
+        <div class="featured-post-img">
+          <img src="images/local_img_7.webp" alt="Corporate Strategy Meeting">
+        </div>
+        <div class="featured-post-content">
+          <span class="badge">M&A STRATEGY & DUE DILIGENCE</span>
+          <h3>Bridging the Valuation Divide in High-Interest Rate Dealmaking</h3>
+          <p>An in-depth analysis of earnout mechanics, convertible seller financing, and warranty insurance structures enabling mid-market acquisitions in turbulent credit conditions.</p>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <img src="images/Michael.webp" style="width: 44px; height: 44px; border-radius: 50%;" alt="Dr. Arthur Vance">
+            <div>
+              <strong style="display: block; font-size: 0.95rem; color: var(--dark-text);">Dr. Arthur Vance</strong>
+              <span style="font-size: 0.8rem; color: #777;">Senior Partner, M&A Deal Advisory</span>
+            </div>
+          </div>
+          <a href="404.html" class="btn btn-primary" style="align-self: flex-start;">Download Whitepaper (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. LATEST ARTICLES + SIDEBAR -->
+    <section class="container section-padding" style="padding-top: 0;">
+      <div class="main-blog-layout">
+        <div class="blog-articles-col">
+          <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+            <h2>Recent Executive Intelligence</h2>
+          </div>
+
+          <div class="blog-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="blog-card" data-aos="fade-up">
+              <div class="blog-img">
+                <img src="images/local_img_1.webp" alt="Board Governance">
+                <span class="blog-date">Oct 14, 2026</span>
+              </div>
+              <div class="blog-content">
+                <span class="blog-category">Governance</span>
+                <h3>The 2026 Audit Committee Roadmap: Cybersecurity & SEC Disclosures</h3>
+                <p>Establishing defensible oversight protocols to insulate board members from fiduciary liability in breach incidents.</p>
+                <a href="404.html" class="read-more">Read Full Analysis <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="blog-img">
+                <img src="images/local_img_2.webp" alt="Supply Chain Resilience">
+                <span class="blog-date">Oct 10, 2026</span>
+              </div>
+              <div class="blog-content">
+                <span class="blog-category">Operations</span>
+                <h3>Working Capital Squeeze: Unlocking Hidden Liquidity Across Global Hubs</h3>
+                <p>Tactical steps to shorten cash conversion cycles and optimize inventory holding costs without hampering customer delivery.</p>
+                <a href="404.html" class="read-more">Read Full Analysis <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <div class="blog-card" data-aos="fade-up">
+              <div class="blog-img">
+                <img src="images/local_img_3.webp" alt="Capital Allocation">
+                <span class="blog-date">Sep 28, 2026</span>
+              </div>
+              <div class="blog-content">
+                <span class="blog-category">Corporate Finance</span>
+                <h3>Growth Capex vs. Share Repurchases: Fiduciary Rules of Thumb</h3>
+                <p>A mathematical framework for evaluating when equity buybacks destroy long-term economic value versus R&D reinvestment.</p>
+                <a href="404.html" class="read-more">Read Full Analysis <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="blog-img">
+                <img src="images/local_img_4.webp" alt="Private Equity Carveouts">
+                <span class="blog-date">Sep 22, 2026</span>
+              </div>
+              <div class="blog-content">
+                <span class="blog-category">Private Equity</span>
+                <h3>The First 100 Days of Corporate Carve-Outs</h3>
+                <p>Decoupling shared ERP systems, establishing standalone treasury structures, and sustaining core employee retention.</p>
+                <a href="404.html" class="read-more">Read Full Analysis <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="blog-sidebar">
+          <div class="blog-sidebar-widget" data-aos="fade-up">
+            <h4>Advisory Search</h4>
+            <div style="position: relative;">
+              <input type="text" placeholder="Search memos, case studies..." style="width: 100%; padding: 0.8rem 2.5rem 0.8rem 1rem; border: 1px solid #ddd; border-radius: 8px;">
+              <i class="fa-solid fa-magnifying-glass" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #888;"></i>
+            </div>
+          </div>
+
+          <div class="blog-sidebar-widget" data-aos="fade-up" data-aos-delay="100">
+            <h4>Trending Executive Topics</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <a href="404.html" class="recipe-meta-tag">#CrossBorderDeal</a>
+              <a href="404.html" class="recipe-meta-tag">#EBITDAOptimization</a>
+              <a href="404.html" class="recipe-meta-tag">#SECCompliance</a>
+              <a href="404.html" class="recipe-meta-tag">#BoardAudit</a>
+              <a href="404.html" class="recipe-meta-tag">#ValuationModel</a>
+              <a href="404.html" class="recipe-meta-tag">#DistressedAssets</a>
+            </div>
+          </div>
+
+          <div class="blog-sidebar-widget" style="background: linear-gradient(135deg, #1b3810, #386b22); color: white;" data-aos="fade-up" data-aos-delay="200">
+            <h4 style="color: white; border-color: rgba(255,255,255,0.2);">Client Advisory Portal</h4>
+            <p style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 1.2rem;">Are you an active corporate client? Access your secure virtual deal room and quarterly briefing memos.</p>
+            <a href="404.html" class="btn btn-primary" style="background: white; color: var(--primary-green); font-weight: 700; width: 100%; text-align: center;"><i class="fa-solid fa-lock"></i> Portal Login</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 5. MASTERCLASS VIDEO COMMENTARY -->
+    <section class="container section-padding" style="padding-top: 0;">
+      <div class="section-header">
+        <h2>Executive Briefings & Masterclasses</h2>
+        <p>Short video perspectives from our Practice Leaders on active boardroom priorities</p>
+      </div>
+      <div class="recipe-grid">
+        <div class="recipe-card" data-aos="fade-up">
+          <div class="recipe-image" style="position: relative;">
+            <img src="images/local_img_5.webp" alt="M&A Masterclass">
+            <a href="404.html" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-green); font-size: 1.4rem;"><i class="fa-solid fa-play"></i></a>
+          </div>
+          <div class="recipe-content">
+            <span class="badge">VIDEO &bull; 14 MIN</span>
+            <h3>Structuring Cross-Border Earnouts Without Legal Gridlock</h3>
+            <p>Managing Partner James Thorne explains negotiation tactics for protecting buyer downside while keeping target founders motivated.</p>
+          </div>
+        </div>
+
+        <div class="recipe-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="recipe-image" style="position: relative;">
+            <img src="images/local_img_6.webp" alt="Turnaround Strategy">
+            <a href="404.html" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-green); font-size: 1.4rem;"><i class="fa-solid fa-play"></i></a>
+          </div>
+          <div class="recipe-content">
+            <span class="badge">VIDEO &bull; 19 MIN</span>
+            <h3>The 30-Day Liquidity Stabilizer for Troubled Supply Chains</h3>
+            <p>Senior Turnaround Partner Elena Rostova breaks down cash conversion optimization for manufacturing enterprises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MACROECONOMIC OUTLOOK -->
+    <section class="container section-padding" style="padding-top: 0;">
+      <div class="split-layout">
+        <div class="split-image">
+          <img src="images/local_img_8.webp" alt="Macro Outlook">
+        </div>
+        <div class="split-content">
+          <span class="subtitle">ANNUAL RESEARCH REPORT</span>
+          <h2>Global Corporate Outlook & Capital Flow Trends</h2>
+          <div class="divider"></div>
+          <p>Our quantitative intelligence unit analyzes interest rate curves, private credit availability, and regulatory antitrust enforcement shifts across North America, the EU, and Asia-Pacific.</p>
+          <p>Gain actionable benchmarks on EBITDA multiples across 14 major corporate sectors to evaluate your balance sheet with board-level precision.</p>
+          <a href="404.html" class="btn btn-outline" style="margin-top: 1rem;"><i class="fa-solid fa-file-pdf"></i> Download Full Outlook (74 Pages)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. STRATEGIC DIAGNOSTIC FRAMEWORKS -->
+    <section class="how-it-works container section-padding" style="padding-top: 0;">
+      <div class="section-header">
+        <h2>Executive Toolkits & Diagnostic Frameworks</h2>
+        <p>Interactive templates and assessment methodologies used during client engagements</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card" data-aos="fade-up">
+          <div class="step-num">01</div>
+          <div class="step-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h3>Valuation Sensitivity Model</h3>
+          <p>Interactive DCF tool modeling interest rate shifts and cost-of-capital variations.</p>
+        </div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-num">02</div>
+          <div class="step-icon"><i class="fa-solid fa-list-check"></i></div>
+          <h3>M&A Due Diligence Checklist</h3>
+          <p>180-point proprietary commercial, financial, and legal synergy assessment guide.</p>
+        </div>
+        <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-num">03</div>
+          <div class="step-icon"><i class="fa-solid fa-building-shield"></i></div>
+          <h3>Board Governance Audit</h3>
+          <p>Self-diagnostic scorecard assessing committee independence and fiduciary risk exposure.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. ESG & SUSTAINABILITY SECTION -->
+    <section class="container section-padding" style="padding-top: 0;">
+      <div class="split-layout reverse">
+        <div class="split-image">
+          <img src="images/local_img_9.webp" alt="ESG Strategy">
+        </div>
+        <div class="split-content">
+          <span class="subtitle">GOVERNANCE & RESPONSIBILITY</span>
+          <h2>Aligning ESG Disclosure with Enterprise Value</h2>
+          <div class="divider"></div>
+          <p>Sustainability is no longer merely compliance; it is an institutional determinant of debt financing terms, sovereign wealth allocations, and brand defensibility.</p>
+          <p>We guide board committees on integrating non-financial metrics into executive compensation and institutional investor reporting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. EXECUTIVE DISPATCH SUBSCRIPTION -->
+    <section class="newsletter container section-padding">
+      <div class="news-content" data-aos="fade-up">
+        <h2>Subscribe to the Stackly Executive Dispatch</h2>
+        <p>Join over 12,000 corporate executives, CFOs, and board chairs who read our weekly strategic analyses.</p>
+        <form class="news-form" action="404.html">
+          <input type="email" placeholder="Enter your corporate email address" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid container">
+      <div class="footer-col">
+        <a href="index.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+        <p style="margin-top: 1rem; color: #aaa;">Premier strategic business advisory firm empowering enterprise leaders with actionable intelligence and sustainable scale.</p>
+        <div class="socials" style="margin-top: 1rem; display: flex; gap: 1rem;">
+          <a href="404.html" style="color: #fff;"><i class="fa-brands fa-facebook"></i></a>
+          <a href="404.html" style="color: #fff;"><i class="fa-brands fa-twitter"></i></a>
+          <a href="404.html" style="color: #fff;"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Practice Areas</h4>
+        <ul>
+          <li><a href="404.html">Corporate Strategy</a></li>
+          <li><a href="404.html">M&A & Deal Advisory</a></li>
+          <li><a href="404.html">Financial Restructuring</a></li>
+          <li><a href="404.html">Operations Scaling</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Global Head Office</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> MMR Complex, Executive Tower, Salem, TN 636008</li>
+          <li><a href="404.html"><i class="fa-solid fa-phone"></i> +91 98765 43210</a></li>
+          <li><a href="404.html"><i class="fa-solid fa-envelope"></i> advisory@stackly.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Stackly Business Advisory. All rights reserved. Confidentiality & Non-Disclosure Protected.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if(typeof AOS !== 'undefined') {
+            AOS.init({ duration: 800, once: true, offset: 100 });
+        }
+    });
+  </script>
+</body>
+</html>

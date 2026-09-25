@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Client Portal - STACKLY Business Advisory</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="user-dashboard.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+        <button class="sidebar-close" id="closeSidebar"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <a href="javascript:void(0)" class="nav-item active" onclick="showSection('dashboard', this)"><i class="fa-solid fa-chart-line"></i> Executive Overview</a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showSection('orders', this)"><i class="fa-solid fa-briefcase"></i> Active Mandates <span style="background: rgba(104,159,56,0.15); color: var(--primary-green); padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; margin-left: auto;">4</span></a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showSection('wishlist', this)"><i class="fa-solid fa-folder-closed"></i> Strategic Vault <span id="sidebarWishCount" style="background: rgba(46,125,50,0.15); color: var(--primary-green); padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; margin-left: auto;">6</span></a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showSection('addresses', this)"><i class="fa-solid fa-building"></i> Corporate Hubs</a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showSection('payments', this)"><i class="fa-solid fa-credit-card"></i> Retainer & Billing</a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showSection('settings', this)"><i class="fa-solid fa-shield-halved"></i> Governance & Profile</a>
+        <a href="javascript:void(0)" class="nav-item" onclick="showSection('support', this)"><i class="fa-solid fa-headset"></i> Advisory Desk</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="login.html" class="nav-item logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- MOBILE TOPBAR WITH STACKLY LOGO -->
+      <div class="mobile-topbar">
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <button class="menu-toggle" id="openSidebarMobile" aria-label="Open Navigation"><i class="fa-solid fa-bars"></i></button>
+          <a href="user-dashboard.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <span class="user-badge" style="background: rgba(104,159,56,0.15); color: var(--primary-green); font-size: 0.75rem; font-weight: 700; padding: 4px 8px; border-radius: 20px;">Client Portal</span>
+          <div class="avatar-initial" style="width: 34px; height: 34px; font-size: 0.9rem;">S</div>
+        </div>
+      </div>
+      
+      <!-- Desktop Top Header -->
+      <header class="top-header">
+        <button class="menu-toggle" id="openSidebar"><i class="fa-solid fa-bars"></i></button>
+        <div style="flex: 1;"><h2 class="page-title" style="margin-bottom: 0;">Client Executive Portal</h2></div>
+      </header>
+
+      <!-- SECTION 1: Executive Overview -->
+      <section id="dashboard" class="content-section active">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h1 class="page-title" style="margin-bottom: 0.3rem;">Welcome back, <span id="welcomeUserName">Sarah</span>! 👋</h1>
+            <p style="color: var(--gray-text); font-size: 0.95rem; margin: 0;">Here is a summary of your active advisory engagements, milestones, and deliverable memos.</p>
+          </div>
+          <button class="btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-briefcase"></i> View All Mandates</button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="stat-details">
+              <h3>4</h3>
+              <p>Active Mandates</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange"><i class="fa-solid fa-hourglass-half"></i></div>
+            <div class="stat-details">
+              <h3>1</h3>
+              <p>Live Valuation Sprint</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red"><i class="fa-solid fa-folder-closed"></i></div>
+            <div class="stat-details">
+              <h3 id="dashWishCount">6</h3>
+              <p>Vault Deliverables</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="fa-solid fa-award"></i></div>
+            <div class="stat-details">
+              <h3>Tier 1</h3>
+              <p>Retainer Advisory Level</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Mandate Progress Banner -->
+        <div style="background: linear-gradient(135deg, #09090b 0%, #18181b 50%, #000000 100%); border: 1px solid rgba(234, 179, 8, 0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.25); color: #fff; padding: 1.8rem; border-radius: 16px; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <span style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.35); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Phase 3: Due Diligence Sprint</span>
+            <h3 style="margin: 0.6rem 0 0.2rem; font-size: 1.3rem; color: #fff;">Cross-Border M&A Synergies (#ADV-89012)</h3>
+            <p style="margin: 0; opacity: 0.9; font-size: 0.9rem;">Lead Partner: <strong>Dr. Arthur Vance</strong> &bull; Next Board Review: <strong>Tomorrow, 10:00 AM EST</strong></p>
+          </div>
+          <button class="btn-primary" style="background: #eab308; color: #000000; font-weight: 700; border: none;" onclick="window.location.href='404.html'"><i class="fa-solid fa-list-check"></i> Track Milestones</button>
+        </div>
+
+        <!-- Recent Mandates Table -->
+        <div class="table-container">
+          <div class="table-header">
+            <h3>Recent Advisory Engagements</h3>
+            <button class="btn-view-all" onclick="showSection('orders')">View Complete Mandate History</button>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Mandate ID</th>
+                <th>Target / Scope</th>
+                <th>Lead Partner</th>
+                <th>Retainer Fee</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>#ADV-89012</strong></td>
+                <td>Cross-Border M&A Synergies & Valuation Model</td>
+                <td>Dr. Arthur Vance</td>
+                <td><strong>$85,000</strong></td>
+                <td><span class="status processing">In Progress</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-route"></i> Milestones</button>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-invoice"></i> Fee Note</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>#ADV-88745</strong></td>
+                <td>Corporate Restructuring & Debt Optimization</td>
+                <td>Elena Rostova</td>
+                <td><strong>$60,000</strong></td>
+                <td><span class="status delivered">Completed</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-invoice"></i> Fee Note</button>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Renew</button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>#ADV-88532</strong></td>
+                <td>Board Governance & SEC Disclosure Audit</td>
+                <td>Marcus Sterling</td>
+                <td><strong>$42,500</strong></td>
+                <td><span class="status delivered">Completed</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-invoice"></i> Fee Note</button>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Renew</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 2: Active Mandates & Deliverables -->
+      <section id="orders" class="content-section" data-aos="fade-up">
+        <h1 class="page-title">Corporate Advisory Mandates</h1>
+
+        <!-- Filter Tabs -->
+        <div class="filter-pills-bar">
+          <button class="filter-pill active" onclick="filterUserOrders('all', this)">All Mandates (4)</button>
+          <button class="filter-pill" onclick="filterUserOrders('active', this)">Active Pipeline (1)</button>
+          <button class="filter-pill" onclick="filterUserOrders('delivered', this)">Completed Deliverables (2)</button>
+          <button class="filter-pill" onclick="filterUserOrders('cancelled', this)">Archived Sprints (1)</button>
+        </div>
+
+        <div class="table-container">
+          <table id="userOrdersTable">
+            <thead>
+              <tr>
+                <th>Mandate ID</th>
+                <th>Engagement Date</th>
+                <th>Strategic Deliverables Scope</th>
+                <th>Retainer / Fee</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-type="active">
+                <td><strong>#ADV-89012</strong></td>
+                <td>Initiated Sep 15, 2026</td>
+                <td>Cross-Border M&A Synergies, Target DCF Valuation, Commercial Due Diligence</td>
+                <td><strong>$85,000</strong></td>
+                <td><span class="status processing">In Progress</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-route"></i> Milestones</button>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Fee Note</button>
+                </td>
+              </tr>
+              <tr data-type="delivered">
+                <td><strong>#ADV-88745</strong></td>
+                <td>Completed Oct 18, 2026</td>
+                <td>Balance Sheet Restructuring, Debt Maturity Realignment, Working Capital Sprint</td>
+                <td><strong>$60,000</strong></td>
+                <td><span class="status delivered">Completed</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Fee Note</button>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Follow-up</button>
+                </td>
+              </tr>
+              <tr data-type="delivered">
+                <td><strong>#ADV-88532</strong></td>
+                <td>Completed Oct 10, 2026</td>
+                <td>Board Governance Policy Framework, SEC Disclosure Audit, ESG Committee Charter</td>
+                <td><strong>$42,500</strong></td>
+                <td><span class="status delivered">Completed</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Fee Note</button>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Follow-up</button>
+                </td>
+              </tr>
+              <tr data-type="cancelled">
+                <td><strong>#ADV-88120</strong></td>
+                <td>Archived Aug 28, 2026</td>
+                <td>Distressed Asset Carve-Out Feasibility Assessment</td>
+                <td><strong>$25,000</strong></td>
+                <td><span class="status cancelled">Terminated (Early Exit)</span></td>
+                <td>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Settlement</button>
+                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Re-open</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 3: Strategic Vault -->
+      <section id="wishlist" class="content-section" data-aos="fade-up">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h1 class="page-title" style="margin-bottom: 0.3rem;">Strategic Vault & Deliverable Blueprints</h1>
+            <p style="color: var(--gray-text); font-size: 0.95rem; margin: 0;">Access confidential deal models, C-suite toolkits, and boardroom blueprints</p>
+          </div>
+          <button class="btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download All Briefcase Memos</button>
+        </div>
+
+        <div class="table-container">
+          <table id="wishlistTable">
+            <thead>
+              <tr>
+                <th>Advisory Framework / Blueprint</th>
+                <th>Practice Area</th>
+                <th>Classification</th>
+                <th>Access Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="wishlistTbody">
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_114.webp" class="product-thumb" alt="M&A Valuation Model">
+                    <div>
+                      <strong>Cross-Border M&A Synergies Model</strong>
+                      <div style="font-size: 0.75rem; color: #888;">Financial DCF & LBO Projections &bull; v4.2</div>
+                    </div>
+                  </div>
+                </td>
+                <td>M&A Deal Advisory</td>
+                <td><strong>Privileged & Confidential</strong></td>
+                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td>
+                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_115.webp" class="product-thumb" alt="Capital Allocation Matrix">
+                    <div>
+                      <strong>C-Suite Capital Allocation Matrix</strong>
+                      <div style="font-size: 0.75rem; color: #888;">Growth Capex & Share Buyback Framework</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Corporate Strategy</td>
+                <td><strong>Internal Board Memo</strong></td>
+                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td>
+                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_116.webp" class="product-thumb" alt="Board Governance Playbook">
+                    <div>
+                      <strong>Board Risk Governance & SEC Playbook</strong>
+                      <div style="font-size: 0.75rem; color: #888;">Fiduciary Protocol & Audit Standards</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Board Governance</td>
+                <td><strong>Compliance Document</strong></td>
+                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td>
+                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_117.webp" class="product-thumb" alt="Post-Merger Synergy">
+                    <div>
+                      <strong>Post-Merger Synergy Realization Framework</strong>
+                      <div style="font-size: 0.75rem; color: #888;">First 100 Days Operational Playbook</div>
+                    </div>
+                  </div>
+                </td>
+                <td>M&A Deal Advisory</td>
+                <td><strong>Partner Strategy Brief</strong></td>
+                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td>
+                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_118.webp" class="product-thumb" alt="Digital Transformation">
+                    <div>
+                      <strong>Enterprise Transformation Architecture</strong>
+                      <div style="font-size: 0.75rem; color: #888;">AI & Workflow Modernization Blueprint</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Operational Scaling</td>
+                <td><strong>Advisory Brief</strong></td>
+                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td>
+                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product-cell">
+                    <img src="./images/img_119.webp" class="product-thumb" alt="Turnaround Diagnostic">
+                    <div>
+                      <strong>Private Equity Turnaround Diagnostic</strong>
+                      <div style="font-size: 0.75rem; color: #888;">EBITDA Uplift & Cost Reduction Matrix</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Financial Restructuring</td>
+                <td><strong>Restricted Access</strong></td>
+                <td><span style="color: var(--warning); font-weight: 600;"><i class="fa-solid fa-lock"></i> Retainer Required</span></td>
+                <td>
+                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-key"></i> Unlock</button>
+                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 4: Corporate Entities & Hubs -->
+      <section id="addresses" class="content-section" data-aos="fade-up">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h1 class="page-title" style="margin-bottom: 0.3rem;">Corporate Entities & Boardroom Hubs</h1>
+            <p style="color: var(--gray-text); font-size: 0.95rem; margin: 0;">Registered corporate headquarters, regional offices, and confidential briefing locations</p>
+          </div>
+          <button class="btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-plus"></i> Add New Corporate Location</button>
+        </div>
+
+        <div class="stats-grid" id="addressCardGrid">
+          <!-- Hub 1 -->
+          <div class="table-container address-card-item" style="margin-bottom: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+              <h3 style="margin: 0; font-size: 1.15rem;"><i class="fa-solid fa-landmark" style="color: var(--primary-green);"></i> Global Headquarters</h3>
+              <a href="404.html" class="status delivered" style="text-decoration: none; cursor: pointer;">Primary Hub</a>
+            </div>
+            <p style="color: var(--gray-text); line-height: 1.6; margin-bottom: 1.2rem;">
+              Apex Global Capital Holdings LLC<br>
+              45 Rockefeller Plaza, Suite 2400,<br>
+              New York, NY 10111, United States<br>
+              <strong>Direct Phone:</strong> +1 (212) 555-0190
+            </p>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="action-btn" onclick="window.location.href='404.html'">Edit Coordinates</button>
+              <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'">Remove</button>
+            </div>
+          </div>
+
+          <!-- Hub 2 -->
+          <div class="table-container address-card-item" style="margin-bottom: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+              <h3 style="margin: 0; font-size: 1.15rem;"><i class="fa-solid fa-building" style="color: #3498db;"></i> European Advisory Hub</h3>
+            </div>
+            <p style="color: var(--gray-text); line-height: 1.6; margin-bottom: 1.2rem;">
+              Apex Capital UK Ltd.<br>
+              Level 28, The Shard, 32 London Bridge St,<br>
+              London SE1 9SG, United Kingdom<br>
+              <strong>Direct Phone:</strong> +44 20 7946 0912
+            </p>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="action-btn" onclick="window.location.href='404.html'">Edit Coordinates</button>
+              <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'">Remove</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Confidentiality Protocols -->
+        <h2 class="page-title" style="margin-top: 2.5rem; font-size: 1.4rem;">Confidentiality & Briefing Protocols</h2>
+        <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); max-width: 650px;">
+          <form onsubmit="event.preventDefault(); window.location.href='404.html';">
+            <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; cursor: pointer; color: #444;">
+              <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--primary-green);">
+              Enforce strict Non-Disclosure Agreement (NDA) and legal privilege on all deliverable models
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; cursor: pointer; color: #444;">
+              <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--primary-green);">
+              Require dual-factor partner authorization before external data room memo disclosure
+            </label>
+            <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 0.8rem; cursor: pointer; color: #444;">
+              <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--primary-green);">
+              Send encrypted board meeting dispatch invites to designated corporate secretary only
+            </label>
+            <button type="submit" class="btn-primary" style="margin-top: 0.5rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-shield-halved"></i> Save Governance Protocols</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- SECTION 5: Retainer & Billing -->
+      <section id="payments" class="content-section" data-aos="fade-up">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h1 class="page-title" style="margin-bottom: 0.3rem;">Retainer & Corporate Payment Vault</h1>
+            <p style="color: var(--gray-text); font-size: 0.95rem; margin: 0;">Authorized corporate cards, escrow accounts, and direct wire settlement instruments</p>
+          </div>
+          <button class="btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-plus"></i> Add Corporate Card</button>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem;" id="cardsContainer">
+          <!-- Card 1 -->
+          <div class="user-card-visual" style="background: linear-gradient(135deg, #1b3310, #386b22); color: white; padding: 1.8rem; border-radius: 16px; box-shadow: 0 10px 25px rgba(56, 107, 34, 0.25); position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+              <span style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">APEX GLOBAL CORPORATE</span>
+              <i class="fa-brands fa-cc-visa" style="font-size: 2.4rem;"></i>
+            </div>
+            <p style="letter-spacing: 3px; font-size: 1.3rem; margin-bottom: 1.2rem; font-family: monospace;">•••• •••• •••• 4242</p>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; opacity: 0.9;">
+              <div>
+                <span style="display: block; font-size: 0.65rem; text-transform: uppercase;">Executive Account</span>
+                <strong>Sarah Jenkins (Managing Director)</strong>
+              </div>
+              <div>
+                <span style="display: block; font-size: 0.65rem; text-transform: uppercase;">Valid Thru</span>
+                <strong>12/28</strong>
+              </div>
+            </div>
+            <span style="position: absolute; top: 1.5rem; right: 4.5rem; background: rgba(255,255,255,0.2); font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; font-weight: 700;">DEFAULT</span>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="user-card-visual" style="background: linear-gradient(135deg, #1f2421, #3c493f); color: white; padding: 1.8rem; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+              <span style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">ESCROW SETTLEMENT INSTRUMENT</span>
+              <i class="fa-brands fa-cc-mastercard" style="font-size: 2.4rem; color: #ff9800;"></i>
+            </div>
+            <p style="letter-spacing: 3px; font-size: 1.3rem; margin-bottom: 1.2rem; font-family: monospace;">•••• •••• •••• 8819</p>
+            <div style="display: flex; justify-content: space-between; font-size: 0.85rem; opacity: 0.9;">
+              <div>
+                <span style="display: block; font-size: 0.65rem; text-transform: uppercase;">Authorized Signatory</span>
+                <strong>Sarah Jenkins</strong>
+              </div>
+              <div>
+                <span style="display: block; font-size: 0.65rem; text-transform: uppercase;">Expires</span>
+                <strong>09/27</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: Governance & Executive Profile -->
+      <section id="settings" class="content-section" data-aos="fade-up">
+        <h1 class="page-title">Executive Profile & Portal Governance</h1>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          <!-- Profile Form -->
+          <div class="table-container" style="margin-bottom: 0;">
+            <h3 style="margin-bottom: 1.2rem; font-size: 1.2rem;"><i class="fa-regular fa-user" style="color: var(--primary-green);"></i> Executive Signatory Details</h3>
+            <form onsubmit="event.preventDefault(); window.location.href='404.html';">
+              <div class="form-group">
+                <label>Full Executive Name</label>
+                <input type="text" id="userInputName" value="Sarah Jenkins" required>
+              </div>
+              <div class="form-group">
+                <label>Corporate Email (For Encrypted Memos)</label>
+                <input type="email" id="userInputEmail" value="sarah.jenkins@apexcapital.com" required>
+              </div>
+              <div class="form-group">
+                <label>Secure Direct Line</label>
+                <input type="tel" id="userInputPhone" value="+1 (212) 555-0190" required>
+              </div>
+              <button type="submit" class="btn-primary" style="margin-top: 0.5rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-save"></i> Save Executive Credentials</button>
+            </form>
+          </div>
+
+          <!-- Password Form -->
+          <div class="table-container" style="margin-bottom: 0;">
+            <h3 style="margin-bottom: 1.2rem; font-size: 1.2rem;"><i class="fa-solid fa-lock" style="color: var(--primary-green);"></i> Change Portal Passcode</h3>
+            <form onsubmit="event.preventDefault(); window.location.href='404.html';">
+              <div class="form-group">
+                <label>Current Security Key</label>
+                <input type="password" id="userCurrentPwd" placeholder="••••••••" required>
+              </div>
+              <div class="form-group">
+                <label>New Security Passcode (min 8 characters)</label>
+                <input type="password" id="userNewPwd" placeholder="New alphanumeric key" required minlength="8">
+              </div>
+              <div class="form-group">
+                <label>Confirm Security Passcode</label>
+                <input type="password" id="userConfirmPwd" placeholder="Confirm passcode" required>
+              </div>
+              <button type="submit" class="btn-primary" style="margin-top: 0.5rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-key"></i> Update Security Credentials</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- SSO Connections -->
+        <h2 class="page-title" style="margin-top: 2rem; font-size: 1.4rem;">Connected Enterprise SSO</h2>
+        <div class="table-container" style="max-width: 500px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid #eee;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-brands fa-microsoft" style="color: #00A4EF; font-size: 1.3rem;"></i>
+              <strong>Microsoft Entra ID (Corporate SSO)</strong>
+            </div>
+            <a href="404.html" class="status delivered" style="text-decoration: none; cursor: pointer;">Linked</a>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class="fa-brands fa-google" style="color: #DB4437; font-size: 1.3rem;"></i>
+              <strong>Google Workspace Enterprise</strong>
+            </div>
+            <button class="action-btn" id="btnToggleFb" onclick="window.location.href='404.html'">Connect</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: Advisory Support Desk -->
+      <section id="support" class="content-section" data-aos="fade-up">
+        <h1 class="page-title">Executive Advisory Support & Inquiries</h1>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+          <!-- Submit Ticket -->
+          <div class="table-container" style="margin-bottom: 0;">
+            <h3 style="margin-bottom: 1.2rem;"><i class="fa-solid fa-paper-plane" style="color: var(--primary-green);"></i> Submit Confidential Inquiry</h3>
+            <form onsubmit="event.preventDefault(); window.location.href='404.html';">
+              <div class="form-group">
+                <label>Advisory Topic / Scope</label>
+                <input type="text" id="userTicketSubject" placeholder="e.g. Schedule emergency valuation review" required>
+              </div>
+              <div class="form-group">
+                <label>Related Mandate Reference # (Optional)</label>
+                <input type="text" id="userTicketOrder" placeholder="#ADV-89012">
+              </div>
+              <div class="form-group">
+                <label>Executive Memo Details</label>
+                <textarea id="userTicketMsg" rows="4" placeholder="Detail your strategic question or briefing timeline..." required></textarea>
+              </div>
+              <button type="submit" class="btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-headset"></i> Send to Advisory Desk</button>
+            </form>
+          </div>
+
+          <!-- Previous Tickets -->
+          <div class="table-container" style="margin-bottom: 0;">
+            <h3 style="margin-bottom: 1.2rem;"><i class="fa-solid fa-clock-rotate-left" style="color: var(--primary-green);"></i> Inquiry History</h3>
+            <div id="userTicketsList">
+              <div style="padding: 1rem; border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 1rem; background: #fafafa;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+                  <strong>#TK-8422: Q3 Board Valuation Model Review</strong>
+                  <a href="404.html" class="status processing" style="text-decoration: none; cursor: pointer;">Partner Review</a>
+                </div>
+                <p style="font-size: 0.85rem; color: #666; margin: 0;">Submitted today &bull; Assigned to Dr. Arthur Vance</p>
+              </div>
+              <div style="padding: 1rem; border: 1px solid var(--border-color); border-radius: 10px; background: #fafafa;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+                  <strong>#TK-8319: Antitrust Regulatory Memo Request</strong>
+                  <a href="404.html" class="status delivered" style="text-decoration: none; cursor: pointer;">Completed</a>
+                </div>
+                <p style="font-size: 0.85rem; color: #666; margin: 0;">Privileged memo delivered to client portal vault</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <h2 class="page-title" style="margin-top: 2rem; font-size: 1.4rem;">Advisory Engagement FAQ</h2>
+        <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+          <div style="margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid #eee;">
+            <h4 style="color: var(--dark-text); margin-bottom: 0.4rem;"><i class="fa-solid fa-circle-question" style="color: var(--primary-green);"></i> What is the turnaround time for bespoke commercial due diligence?</h4>
+            <p style="color: var(--gray-text); margin: 0; line-height: 1.5;">Preliminary valuation sprint memos are delivered within 7 business days, followed by comprehensive financial modeling and partner presentations by Week 3.</p>
+          </div>
+          <div>
+            <h4 style="color: var(--dark-text); margin-bottom: 0.4rem;"><i class="fa-solid fa-circle-question" style="color: var(--primary-green);"></i> How is confidentiality guaranteed during cross-border deal negotiations?</h4>
+            <p style="color: var(--gray-text); margin: 0; line-height: 1.5;">All engagement materials are governed by mutual NDAs, hosted within end-to-end encrypted virtual data rooms, and accessible solely by cleared senior advisory partners.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL 1: Mandate Milestone Tracker Modal with 4-Step Stepper -->
+  <div class="dash-modal-overlay" id="orderTrackerModal">
+    <div class="dash-modal-card">
+      <div class="dash-modal-header">
+        <h3 id="trackerModalTitle"><i class="fa-solid fa-list-check" style="color: var(--primary-green);"></i> Mandate Deliverable Milestones</h3>
+        <button class="dash-modal-close" onclick="closeModal('orderTrackerModal')">&times;</button>
+      </div>
+      <div class="dash-modal-body">
+        <div style="background: #f7faf5; padding: 1.2rem; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+            <span>Mandate ID: <strong id="trackerOrderNum">#ADV-89012</strong></span>
+            <span class="status processing">Phase 3: Active</span>
+          </div>
+          <p style="color: #666; font-size: 0.88rem; margin: 0;">Lead Partner: <strong>Dr. Arthur Vance (M&A Deal Advisory)</strong> &bull; Review: <strong>Boardroom Presentation</strong></p>
+        </div>
+
+        <!-- 4-Step Stepper -->
+        <div class="tracker-container">
+          <div class="tracker-progress-bar" style="width: 75%;"></div>
+          <div class="tracker-step completed">
+            <div class="tracker-dot"><i class="fa-solid fa-check"></i></div>
+            <span class="tracker-label">Scoping</span>
+          </div>
+          <div class="tracker-step completed">
+            <div class="tracker-dot"><i class="fa-solid fa-chart-pie"></i></div>
+            <span class="tracker-label">Modeling</span>
+          </div>
+          <div class="tracker-step active">
+            <div class="tracker-dot"><i class="fa-solid fa-scale-balanced"></i></div>
+            <span class="tracker-label">Valuation</span>
+          </div>
+          <div class="tracker-step">
+            <div class="tracker-dot"><i class="fa-solid fa-file-signature"></i></div>
+            <span class="tracker-label">Final Delivery</span>
+          </div>
+        </div>
+
+        <div style="text-align: center; color: #555; font-size: 0.95rem; margin-top: 1rem;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--primary-green);"></i> Privileged client engagement governed under mutual Non-Disclosure Agreement
+        </div>
+      </div>
+      <div class="dash-modal-footer">
+        <button type="button" class="btn-primary" onclick="closeModal('orderTrackerModal')">Dismiss</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: Itemized PDF Invoice / Fee Note Modal -->
+  <div class="dash-modal-overlay" id="invoiceModal">
+    <div class="dash-modal-card">
+      <div class="dash-modal-header">
+        <h3 id="invoiceModalTitle"><i class="fa-solid fa-file-invoice" style="color: var(--primary-green);"></i> Advisory Retainer Fee Note</h3>
+        <button class="dash-modal-close" onclick="closeModal('invoiceModal')">&times;</button>
+      </div>
+      <div class="dash-modal-body" style="font-family: inherit;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 2px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1rem;">
+          <div>
+            <h4 style="margin: 0; color: var(--primary-green); font-size: 1.3rem;">STACKLY BUSINESS ADVISORY</h4>
+            <p style="margin: 0.2rem 0; color: #666; font-size: 0.85rem;">Global Corporate Strategy & M&A Partners LLC</p>
+          </div>
+          <div style="text-align: right;">
+            <strong id="invoiceOrderNumber">#ADV-89012</strong>
+            <p style="margin: 0.2rem 0; color: #666; font-size: 0.85rem;" id="invoiceDate">Oct 18, 2026</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1rem; font-size: 0.9rem;">
+          <strong>Billed Client:</strong> Apex Global Capital Holdings LLC<br>
+          Attn: Sarah Jenkins (Managing Director)<br>
+          45 Rockefeller Plaza, New York, NY 10111
+        </div>
+
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 1rem; min-width: 0;">
+          <thead>
+            <tr style="background: #f8f8f8;">
+              <th style="padding: 0.5rem; text-align: left; font-size: 0.85rem;">Advisory Scope & Deliverable</th>
+              <th style="padding: 0.5rem; text-align: center; font-size: 0.85rem;">Terms</th>
+              <th style="padding: 0.5rem; text-align: right; font-size: 0.85rem;">Fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 0.5rem; font-size: 0.85rem;">Phase 1-3 M&A Valuation & Due Diligence Sprint</td>
+              <td style="padding: 0.5rem; text-align: center; font-size: 0.85rem;">Retainer</td>
+              <td style="padding: 0.5rem; text-align: right; font-size: 0.85rem;">$75,000</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.5rem; font-size: 0.85rem;">Data Room Access & Governance Audit Protocol</td>
+              <td style="padding: 0.5rem; text-align: center; font-size: 0.85rem;">Fixed Fee</td>
+              <td style="padding: 0.5rem; text-align: right; font-size: 0.85rem;">$10,000</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="text-align: right; border-top: 1px solid var(--border-color); padding-top: 0.8rem;">
+          <h4 style="margin: 0; font-size: 1.1rem;">Total Retainer Fee: <span id="invoiceTotalVal" style="color: var(--primary-green);">$85,000</span></h4>
+          <span style="font-size: 0.8rem; color: #2e7d32; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> Settled via Corporate Wire Escrow</span>
+        </div>
+      </div>
+      <div class="dash-modal-footer">
+        <button type="button" class="action-btn" onclick="window.print()"><i class="fa-solid fa-print"></i> Print</button>
+        <button type="button" class="btn-primary" onclick="simulatePdfDownload()"><i class="fa-solid fa-download"></i> Download Fee Note PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Add New Corporate Location Modal -->
+  <div class="dash-modal-overlay" id="addAddressModal">
+    <div class="dash-modal-card">
+      <div class="dash-modal-header">
+        <h3><i class="fa-solid fa-building" style="color: var(--primary-green);"></i> Add Corporate Location</h3>
+        <button class="dash-modal-close" onclick="closeModal('addAddressModal')">&times;</button>
+      </div>
+      <form onsubmit="handleCreateAddress(event)">
+        <div class="dash-modal-body">
+          <div class="form-group">
+            <label>Location Label (e.g. Asia-Pac Regional Hub, Boardroom Annex) *</label>
+            <input type="text" id="newAddrTitle" placeholder="e.g. Singapore Strategic Hub" required>
+          </div>
+          <div class="form-group">
+            <label>Street Address & Tower *</label>
+            <textarea id="newAddrStreet" rows="3" placeholder="Tower name, floor number, avenue..." required></textarea>
+          </div>
+          <div style="display: flex; gap: 1rem;">
+            <div class="form-group" style="flex: 1;">
+              <label>City & Country *</label>
+              <input type="text" id="newAddrCity" placeholder="Singapore / Zurich" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label>Postal Code *</label>
+              <input type="text" id="newAddrPin" placeholder="018981" required>
+            </div>
+          </div>
+        </div>
+        <div class="dash-modal-footer">
+          <button type="button" class="action-btn" onclick="closeModal('addAddressModal')">Cancel</button>
+          <button type="submit" class="btn-primary"><i class="fa-solid fa-plus"></i> Save Location</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 4: Add New Card Modal -->
+  <div class="dash-modal-overlay" id="addCardModal">
+    <div class="dash-modal-card">
+      <div class="dash-modal-header">
+        <h3><i class="fa-solid fa-credit-card" style="color: var(--primary-green);"></i> Add Corporate Payment Card</h3>
+        <button class="dash-modal-close" onclick="closeModal('addCardModal')">&times;</button>
+      </div>
+      <form onsubmit="handleCreatePaymentCard(event)">
+        <div class="dash-modal-body">
+          <div class="form-group">
+            <label>Cardholder / Signatory Name *</label>
+            <input type="text" id="newCardName" placeholder="Sarah Jenkins" required>
+          </div>
+          <div class="form-group">
+            <label>Card Number (16 Digits) *</label>
+            <input type="text" id="newCardNumber" placeholder="4242 •••• •••• 9921" maxlength="19" required>
+          </div>
+          <div style="display: flex; gap: 1rem;">
+            <div class="form-group" style="flex: 1;">
+              <label>Expiry (MM/YY) *</label>
+              <input type="text" id="newCardExpiry" placeholder="08/29" maxlength="5" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label>CVV / CVC *</label>
+              <input type="password" id="newCardCvv" placeholder="•••" maxlength="4" required>
+            </div>
+          </div>
+        </div>
+        <div class="dash-modal-footer">
+          <button type="button" class="action-btn" onclick="closeModal('addCardModal')">Cancel</button>
+          <button type="submit" class="btn-primary"><i class="fa-solid fa-lock"></i> Save Encrypted Card</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Element -->
+  <div class="dash-toast" id="userToast">
+    <i class="fa-solid fa-circle-check"></i> <span id="userToastMsg">Success</span>
+  </div>
+
+  <script>
+    // --- Dynamic User Profile Loading ---
+    document.addEventListener("DOMContentLoaded", () => {
+      const email = localStorage.getItem('stackly_email') || localStorage.getItem('userEmail') || localStorage.getItem('email');
+      const storedName = localStorage.getItem('stackly_name') || localStorage.getItem('userName') || localStorage.getItem('username');
+
+      if (email || storedName) {
+        let displayName = storedName;
+        if (!displayName || displayName === 'Sarah' || displayName === 'Sarah Jenkins') {
+          if (email) {
+            displayName = email.split('@')[0];
+          }
+        }
+        if (!displayName) displayName = 'Client Executive';
+
+        const displayEmail = email || 'client@stackly.com';
+        const initial = displayName.charAt(0).toUpperCase();
+
+        document.querySelectorAll('.avatar-initial').forEach(el => el.textContent = initial);
+
+        // Update greeting banner in Executive Overview
+        const welcomeEl = document.getElementById('welcomeUserName');
+        if (welcomeEl) welcomeEl.textContent = displayName;
+
+        // Update header user profile name & email
+        const headerNameEl = document.getElementById('headerUserName');
+        if (headerNameEl) headerNameEl.textContent = displayName;
+
+        const emailEls = document.querySelectorAll('#sidebarUserEmail, #headerUserEmail, .user-info p');
+        emailEls.forEach(el => el.textContent = displayEmail);
+
+        // Update Settings form fields
+        const inputName = document.getElementById('userInputName');
+        if (inputName) inputName.value = displayName;
+
+        const inputEmail = document.getElementById('userInputEmail');
+        if (inputEmail) inputEmail.value = displayEmail;
+      }
+    });
+
+    // --- Sidebar & Mobile Navigation ---
+    const sidebar = document.getElementById('sidebar');
+    const openBtn = document.getElementById('openSidebar');
+    const openBtnMobile = document.getElementById('openSidebarMobile');
+    const closeBtn = document.getElementById('closeSidebar');
+
+    function openSidebarDrawer() {
+      if (sidebar) {
+        sidebar.classList.add('active');
+        if (window.innerWidth <= 992) document.body.style.overflow = 'hidden';
+      }
+    }
+    if (openBtn) openBtn.addEventListener('click', openSidebarDrawer);
+    if (openBtnMobile) openBtnMobile.addEventListener('click', openSidebarDrawer);
+    if (closeBtn && sidebar) {
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    function showSection(sectionId, element) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      
+      const navItems = document.querySelectorAll('.nav-item');
+      navItems.forEach(item => item.classList.remove('active'));
+      
+      const targetSec = document.getElementById(sectionId);
+      if (targetSec) targetSec.classList.add('active');
+
+      if (element) {
+        element.classList.add('active');
+      } else {
+        navItems.forEach(item => {
+          if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(sectionId)) {
+            item.classList.add('active');
+          }
+        });
+      }
+
+      if (typeof AOS !== 'undefined') {
+        AOS.refreshHard();
+      }
+
+      if (window.innerWidth <= 992 && sidebar) {
+        sidebar.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // --- Modals & Popups ---
+    function closeModal(modalId) {
+      const m = document.getElementById(modalId);
+      if (m) m.classList.remove('active');
+    }
+
+    function openOrderTracker(orderId, step) {
+      document.getElementById('trackerModalTitle').innerHTML = `<i class="fa-solid fa-list-check" style="color: var(--primary-green);"></i> Mandate Milestones #${orderId}`;
+      document.getElementById('trackerOrderNum').textContent = '#' + orderId;
+      document.getElementById('orderTrackerModal').classList.add('active');
+    }
+
+    function openInvoiceModal(orderId, date, total) {
+      document.getElementById('invoiceOrderNumber').textContent = '#' + orderId;
+      document.getElementById('invoiceDate').textContent = date;
+      document.getElementById('invoiceTotalVal').textContent = total;
+      document.getElementById('invoiceModal').classList.add('active');
+    }
+
+    function simulatePdfDownload() {
+      closeModal('invoiceModal');
+      showUserToast('Downloading official advisory fee note PDF...');
+    }
+
+    function openCartPreview() {
+      showUserToast('You have 2 strategic memos queued in your download briefcase.');
+    }
+
+    // --- Filter User Orders / Mandates ---
+    function filterUserOrders(type, pill) {
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const rows = document.querySelectorAll('#userOrdersTable tbody tr');
+      rows.forEach(r => {
+        if (type === 'all' || r.getAttribute('data-type') === type) {
+          r.style.display = '';
+        } else {
+          r.style.display = 'none';
+        }
+      });
+    }
+
+    // --- Reorder / Renew Action ---
+    function reorderItems(items) {
+      const badge = document.getElementById('cartBadge');
+      if (badge) {
+        badge.textContent = parseInt(badge.textContent || '0') + 1;
+      }
+      showUserToast(`Initiated renewal inquiry for "${items}"!`);
+    }
+
+    // --- Wishlist / Deliverable Actions ---
+    function addWishItemToCart(btn, itemName) {
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Queued!';
+      btn.style.background = '#27ae60';
+      
+      const badge = document.getElementById('cartBadge');
+      if (badge) {
+        badge.textContent = parseInt(badge.textContent || '0') + 1;
+      }
+
+      showUserToast(`Downloaded "${itemName}" to your executive briefcase!`);
+
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.background = '';
+      }, 1500);
+    }
+
+    function removeWishItem(btn) {
+      const row = btn.closest('tr');
+      row.style.transition = 'opacity 0.3s';
+      row.style.opacity = '0';
+      setTimeout(() => {
+        row.remove();
+        showUserToast('Blueprint archived from active vault.');
+        const tbody = document.getElementById('wishlistTbody');
+        const count = tbody ? tbody.children.length : 0;
+        const wCount1 = document.getElementById('sidebarWishCount');
+        const wCount2 = document.getElementById('dashWishCount');
+        if (wCount1) wCount1.textContent = count;
+        if (wCount2) wCount2.textContent = count;
+      }, 300);
+    }
+
+    function addAllWishlistToCart() {
+      const tbody = document.getElementById('wishlistTbody');
+      const count = tbody ? tbody.children.length : 0;
+      const badge = document.getElementById('cartBadge');
+      if (badge) {
+        badge.textContent = parseInt(badge.textContent || '0') + count;
+      }
+      showUserToast(`All ${count} strategic blueprints packaged for download!`);
+    }
+
+    // --- Corporate Location Management ---
+    function openAddAddressModal() {
+      document.getElementById('addAddressModal').classList.add('active');
+    }
+    function handleCreateAddress(e) {
+      e.preventDefault();
+      const title = document.getElementById('newAddrTitle').value.trim();
+      const street = document.getElementById('newAddrStreet').value.trim();
+      const city = document.getElementById('newAddrCity').value.trim();
+      const pin = document.getElementById('newAddrPin').value.trim();
+
+      const grid = document.getElementById('addressCardGrid');
+      const div = document.createElement('div');
+      div.className = 'table-container address-card-item';
+      div.style.marginBottom = '0';
+      div.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+          <h3 style="margin: 0; font-size: 1.15rem;"><i class="fa-solid fa-building" style="color: var(--primary-green);"></i> ${title}</h3>
+        </div>
+        <p style="color: var(--gray-text); line-height: 1.6; margin-bottom: 1.2rem;">
+          ${street},<br>
+          ${city}, ${pin}<br>
+          <strong>Direct Line:</strong> +1 (212) 555-0190
+        </p>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="action-btn" onclick="editAddressPrompt(this)">Edit Coordinates</button>
+          <button class="action-btn" style="color: var(--danger);" onclick="deleteAddressCard(this)">Remove</button>
+        </div>
+      `;
+      grid.appendChild(div);
+      closeModal('addAddressModal');
+      showUserToast(`New corporate location "${title}" saved successfully!`);
+    }
+    function editAddressPrompt(btn) {
+      const card = btn.closest('.address-card-item');
+      const current = card.querySelector('p').innerText;
+      const newStreet = prompt('Update corporate office address or coordinates:', current.split('\n')[0]);
+      if (newStreet) {
+        showUserToast('Location coordinates updated successfully!');
+      }
+    }
+    function deleteAddressCard(btn) {
+      if (confirm('Remove this corporate hub from registered directory?')) {
+        const card = btn.closest('.address-card-item');
+        card.remove();
+        showUserToast('Corporate hub removed.');
+      }
+    }
+
+    // --- Card Creation & Management ---
+    function openAddCardModal() {
+      document.getElementById('addCardModal').classList.add('active');
+    }
+    function handleCreatePaymentCard(e) {
+      e.preventDefault();
+      const name = document.getElementById('newCardName').value.trim();
+      const num = document.getElementById('newCardNumber').value.trim();
+      const exp = document.getElementById('newCardExpiry').value.trim();
+      const last4 = num.slice(-4) || '1234';
+
+      const container = document.getElementById('cardsContainer');
+      const div = document.createElement('div');
+      div.className = 'user-card-visual';
+      div.style = 'background: linear-gradient(135deg, #1f2421, #2e4a19); color: white; padding: 1.8rem; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.15);';
+      div.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+          <span style="font-weight: 700; letter-spacing: 1px; font-size: 0.9rem;">CORPORATE INSTRUMENT</span>
+          <i class="fa-brands fa-cc-visa" style="font-size: 2.4rem;"></i>
+        </div>
+        <p style="letter-spacing: 3px; font-size: 1.3rem; margin-bottom: 1.2rem; font-family: monospace;">•••• •••• •••• ${last4}</p>
+        <div style="display: flex; justify-content: space-between; font-size: 0.85rem; opacity: 0.9;">
+          <div>
+            <span style="display: block; font-size: 0.65rem; text-transform: uppercase;">Signatory</span>
+            <strong>${name}</strong>
+          </div>
+          <div>
+            <span style="display: block; font-size: 0.65rem; text-transform: uppercase;">Valid Thru</span>
+            <strong>${exp}</strong>
+          </div>
+        </div>
+      `;
+      container.appendChild(div);
+      closeModal('addCardModal');
+      showUserToast('New corporate card encrypted and registered!');
+    }
+
+    // --- Profile & Password Saving ---
+    function handleUserProfileSave(e) {
+      e.preventDefault();
+      const name = document.getElementById('userInputName').value.trim();
+      const email = document.getElementById('userInputEmail').value.trim();
+
+      const userHeader = document.getElementById('headerUserName');
+      const sidebarName = document.getElementById('sidebarUserName');
+      const welcome = document.getElementById('welcomeUserName');
+      if (userHeader) userHeader.textContent = name;
+      if (sidebarName) sidebarName.textContent = name;
+      if (welcome) welcome.textContent = name;
+
+      localStorage.setItem('stackly_name', name);
+      localStorage.setItem('stackly_email', email);
+      showUserToast('Executive credentials updated!');
+    }
+
+    function handleUserPasswordChange(e) {
+      e.preventDefault();
+      const newPwd = document.getElementById('userNewPwd').value;
+      const confirmPwd = document.getElementById('userConfirmPwd').value;
+      if (newPwd !== confirmPwd) {
+        alert('Passcodes do not match. Please verify your entries.');
+        return;
+      }
+      document.getElementById('userCurrentPwd').value = '';
+      document.getElementById('userNewPwd').value = '';
+      document.getElementById('userConfirmPwd').value = '';
+      showUserToast('Executive portal passcode updated securely!');
+    }
+
+    function toggleSocialLink(btn) {
+      if (btn.textContent === 'Connect') {
+        btn.textContent = 'Linked';
+        btn.className = 'status delivered';
+        showUserToast('Enterprise SSO workspace linked successfully!');
+      } else {
+        btn.textContent = 'Connect';
+        btn.className = 'action-btn';
+        showUserToast('Enterprise SSO workspace disconnected.');
+      }
+    }
+
+    // --- Support Ticket Submission ---
+    function handleUserSubmitTicket(e) {
+      e.preventDefault();
+      const subject = document.getElementById('userTicketSubject').value.trim();
+      const order = document.getElementById('userTicketOrder').value.trim();
+      const msg = document.getElementById('userTicketMsg').value.trim();
+      const ticketId = '#TK-' + Math.floor(1000 + Math.random() * 9000);
+
+      const list = document.getElementById('userTicketsList');
+      const div = document.createElement('div');
+      div.style = 'padding: 1rem; border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 1rem; background: #fafafa;';
+      div.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+          <strong>${ticketId}: ${subject}</strong>
+          <span class="status processing">Partner Review</span>
+        </div>
+        <p style="font-size: 0.85rem; color: #666; margin: 0;">Submitted just now &bull; Dispatch notified</p>
+      `;
+      list.prepend(div);
+
+      document.getElementById('userTicketSubject').value = '';
+      document.getElementById('userTicketOrder').value = '';
+      document.getElementById('userTicketMsg').value = '';
+
+      showUserToast(`Inquiry ${ticketId} logged! An advisory partner has been notified.`);
+    }
+
+    // --- Toast Functionality ---
+    function showUserToast(message) {
+      const toast = document.getElementById('userToast');
+      const msgSpan = document.getElementById('userToastMsg');
+      if (toast && msgSpan) {
+        msgSpan.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3000);
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 800, once: true, offset: 50 });
+      }
+    });
+  </script>
+</body>
+</html>

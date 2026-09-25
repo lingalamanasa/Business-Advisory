@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly - Business Advisory</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+    
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <nav id="nav-links">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service.html">Service</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="auth-mobile">
+        <a href="login.html" class="btn-login"><i class="fa-regular fa-user"></i> Login</a>
+        <a href="register.html" class="btn-signup"><i class="fa-solid fa-user-plus"></i> Signup</a>
+      </div>
+    </nav>
+    <div class="auth-desktop">
+      <a href="login.html" class="btn-login"><i class="fa-regular fa-user"></i> Login</a>
+      <a href="register.html" class="btn-signup"><i class="fa-solid fa-user-plus"></i> Signup</a>
+    </div>
+  </header>
+
+  <!-- 1. HERO SECTION -->
+  <section class="hero">
+    <!-- Hero Background Image Slideshow -->
+    <div class="hero-slider">
+      <div class="hero-slide active" style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.92) 0%, rgba(10, 10, 10, 0.78) 50%, rgba(0, 0, 0, 0.42) 100%), url('images/img_css_1.webp');"></div>
+      <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.92) 0%, rgba(10, 10, 10, 0.78) 50%, rgba(0, 0, 0, 0.42) 100%), url('images/img_css_2.webp');"></div>
+      <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.92) 0%, rgba(10, 10, 10, 0.78) 50%, rgba(0, 0, 0, 0.42) 100%), url('images/img_104.webp');"></div>
+      <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.92) 0%, rgba(10, 10, 10, 0.78) 50%, rgba(0, 0, 0, 0.42) 100%), url('images/img_106.webp');"></div>
+      <div class="hero-slide" style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.92) 0%, rgba(10, 10, 10, 0.78) 50%, rgba(0, 0, 0, 0.42) 100%), url('images/img_120.webp');"></div>
+    </div>
+
+    <!-- Slide Indicators -->
+    <div class="hero-slider-dots">
+      <span class="slider-dot active" data-slide="0" title="Slide 1"></span>
+      <span class="slider-dot" data-slide="1" title="Slide 2"></span>
+      <span class="slider-dot" data-slide="2" title="Slide 3"></span>
+      <span class="slider-dot" data-slide="3" title="Slide 4"></span>
+      <span class="slider-dot" data-slide="4" title="Slide 5"></span>
+    </div>
+
+    <div class="hero-content" data-aos="fade-up">
+      <p class="subtitle">BUSINESS ADVISORY,</p>
+      <h1>Stacked for<br>Business Advisory<span class="dot">.</span></h1>
+      <p class="description">Your premier partner for corporate strategy, M&A deal advisory, financial restructuring, and operational scaling. Transforming enterprise vision into generational market value.</p>
+      
+      <div class="cta-buttons">
+        <a href="404.html" class="btn btn-primary"><i class="fa-solid fa-chart-line"></i> Our Advisory Services</a>
+        <a href="404.html" class="btn btn-outline"><i class="fa-solid fa-calendar-check"></i> Book Consultation</a>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="icon-circle"><i class="fa-solid fa-chess-knight"></i></div>
+          <div class="feature-text">
+            <h4>Strategic Clarity</h4>
+            <p>Proven C-suite roadmap</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon-circle"><i class="fa-solid fa-arrow-trend-up"></i></div>
+          <div class="feature-text">
+            <h4>Capital Growth</h4>
+            <p>M&A and valuation scaling</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon-circle"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="feature-text">
+            <h4>Risk Governance</h4>
+            <p>Board-level compliance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PRACTICE AREAS / CATEGORIES SECTION -->
+  <section class="categories container section-padding">
+    <div class="section-header">
+      <h2>Business Advisory Practices</h2>
+      <p>Multi-disciplinary business advisory tailored for enterprise transformation</p>
+    </div>
+    <div class="category-grid">
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-compass"></i>
+        <h3>Corporate Strategy</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-handshake"></i>
+        <h3>M&A & Deal Advisory</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-gears"></i>
+        <h3>Operations Scaling</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-chart-pie"></i>
+        <h3>Financial Structuring</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-microchip"></i>
+        <h3>Digital Architecture</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-landmark"></i>
+        <h3>Board Governance</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. GROWTH STAGE SOLUTIONS (LIFESTYLE SECTION) -->
+  <section class="diet-lifestyles container section-padding" style="padding-top: 0;">
+    <div class="section-header">
+      <h2>Tailored by Enterprise Stage</h2>
+      <p>Specialized advisory blueprints matching your organization's trajectory</p>
+    </div>
+    <div class="diet-grid">
+      <a href="404.html" class="diet-card">
+        <img src="images/img_114.webp" alt="High-Growth Scaleups">
+        <div class="diet-overlay"><h3>High-Growth Scaleups</h3></div>
+      </a>
+      <a href="404.html" class="diet-card">
+        <img src="images/img_115.webp" alt="Mid-Market Corporates">
+        <div class="diet-overlay"><h3>Mid-Market Corporates</h3></div>
+      </a>
+      <a href="404.html" class="diet-card">
+        <img src="images/img_116.webp" alt="Private Equity Portfolio">
+        <div class="diet-overlay"><h3>Private Equity Portfolio</h3></div>
+      </a>
+      <a href="404.html" class="diet-card">
+        <img src="images/img_117.webp" alt="Global Conglomerates">
+        <div class="diet-overlay"><h3>Global Conglomerates</h3></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 4. FLAGSHIP M&A & DEALS (BEST DEALS & OFFERS) -->
+  <section class="best-deals container section-padding" style="padding-top: 0;">
+    <div class="section-header">
+      <h2>Featured Advisory Mandates</h2>
+      <p>Recent strategic engagements delivering measurable enterprise value</p>
+    </div>
+    <div class="deals-grid">
+      <a href="404.html" class="deal-card">
+        <img src="images/img_118.webp" alt="Cross-Border Tech M&A">
+        <div class="deal-overlay">
+          <span class="deal-badge" style="background: #eab308; color: #000; font-weight: 700;">Completed</span>
+          <div class="deal-text">
+            <h3>$380M Cross-Border<br>Tech Acquisition</h3>
+            <span class="deal-btn">Case Summary <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+      <a href="404.html" class="deal-card">
+        <img src="images/img_119.webp" alt="Corporate Turnaround Sprint">
+        <div class="deal-overlay">
+          <span class="deal-badge" style="background: #000000; color: #eab308; border: 1px solid #eab308; font-weight: 700;">+42% EBITDA</span>
+          <div class="deal-text">
+            <h3>Operational Restructuring<br>Industrial Manufacturing</h3>
+            <span class="deal-btn">Case Summary <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+      <a href="404.html" class="deal-card">
+        <img src="images/local_img_4.webp" alt="PE Portfolio Carve-Out">
+        <div class="deal-overlay">
+          <span class="deal-badge" style="background: #eab308; color: #000; font-weight: 700;">$520M Carve-Out</span>
+          <div class="deal-text">
+            <h3>PE Portfolio Carve-Out<br>& Corporate Divestiture</h3>
+            <span class="deal-btn">Case Summary <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+      <a href="404.html" class="deal-card">
+        <img src="images/local_img_6.webp" alt="Debt Capital Syndication">
+        <div class="deal-overlay">
+          <span class="deal-badge" style="background: #000000; color: #eab308; border: 1px solid #eab308; font-weight: 700;">$850M Syndicate</span>
+          <div class="deal-text">
+            <h3>Debt Capital Syndication<br>& Refinancing Facility</h3>
+            <span class="deal-btn">Case Summary <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 5. CONSULTING CAPABILITIES (FEATURED PRODUCTS) -->
+  <section class="featured-products container section-padding">
+    <div class="section-header">
+      <h2>Specialized Advisory Capabilities</h2>
+      <p>Deploying specialized methodologies across modern corporate disciplines</p>
+    </div>
+    <div class="product-grid">
+      <!-- Card 1 -->
+      <div class="product-card" data-aos="fade-up">
+        <div class="product-image">
+          <img src="images/img_120.webp" alt="Valuation & Modeling">
+          <span class="badge">Quantitative</span>
+        </div>
+        <div class="product-details">
+          <h3>Valuation & Financial Modeling</h3>
+          <p class="unit">DCF, LBO & Synergies Analysis</p>
+          <div class="price-action">
+            <span class="price">Mandate Basis</span>
+            <a href="404.html" class="btn-add"><i class="fa-solid fa-chevron-right"></i> Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="product-image">
+          <img src="images/img_121.webp" alt="Supply Chain Optimization">
+          <span class="badge">Operational</span>
+        </div>
+        <div class="product-details">
+          <h3>Supply Chain Realignment</h3>
+          <p class="unit">Global Logistics & Working Capital</p>
+          <div class="price-action">
+            <span class="price">Sprint Basis</span>
+            <a href="404.html" class="btn-add"><i class="fa-solid fa-chevron-right"></i> Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="product-image">
+          <img src="images/img_122.webp" alt="Capital Allocation">
+          <span class="badge">Strategic</span>
+        </div>
+        <div class="product-details">
+          <h3>Capital Allocation Advisory</h3>
+          <p class="unit">Treasury, Debt & Equity Syndication</p>
+          <div class="price-action">
+            <span class="price">Quarterly Retainer</span>
+            <a href="404.html" class="btn-add"><i class="fa-solid fa-chevron-right"></i> Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="product-image">
+          <img src="images/img_124.webp" alt="Boardroom Governance">
+          <span class="badge">Governance</span>
+        </div>
+        <div class="product-details">
+          <h3>Board Risk & Audit Advisory</h3>
+          <p class="unit">Fiduciary Duty & SEC Compliance</p>
+          <div class="price-action">
+            <span class="price">Annual Retainer</span>
+            <a href="404.html" class="btn-add"><i class="fa-solid fa-chevron-right"></i> Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. ADVISORY METHODOLOGY (6-STEP TIMELINE) -->
+  <section class="how-it-works container section-padding" style="padding-top: 0;">
+    <div class="section-header">
+      <h2>The Stackly Advisory Process</h2>
+      <p>Rigorous, disciplined roadmap from diagnostic to enterprise value realization</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card" data-aos="fade-up">
+        <div class="step-num">01</div>
+        <div class="step-icon"><i class="fa-solid fa-microscope"></i></div>
+        <h3>Deep-Dive Diagnostic</h3>
+        <p>Quantitative audit of corporate financials, market positioning, and operational bottlenecks.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i class="fa-solid fa-chess-board"></i></div>
+        <h3>Strategic Architecture</h3>
+        <p>Co-creating bespoke capital allocation models, M&A roadmaps, or restructuring playbooks.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+        <h3>Execution Leadership</h3>
+        <p>Hands-on partner guidance through deal rooms, debt negotiations, or operational reorganization.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="step-num">04</div>
+        <div class="step-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Value Realization</h3>
+        <p>Institutionalizing systems, board reporting frameworks, and sustainable valuation multiples.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="step-num">05</div>
+        <div class="step-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Governance & Risk Oversight</h3>
+        <p>Embedding institutional board-level controls, fiduciary frameworks, and compliance protocols.</p>
+      </div>
+      <div class="step-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="step-num">06</div>
+        <div class="step-icon"><i class="fa-solid fa-trophy"></i></div>
+        <h3>Sustainable Scale & Exit</h3>
+        <p>Long-term value preservation, ongoing boardroom advisory, and liquidity event readiness.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. SECTOR EXPERTISE (CATEGORIES EXPANDED) -->
+  <section class="container section-padding" style="padding-top: 0;">
+    <div class="section-header">
+      <h2>Industry Domain Expertise</h2>
+      <p>Decades of sector-specific intelligence and regulatory insight</p>
+    </div>
+    <div class="category-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-hospital"></i>
+        <h3>Healthcare & Biotech</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-building-columns"></i>
+        <h3>Financial Services</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-industry"></i>
+        <h3>Industrial & Energy</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-plane-departure"></i>
+        <h3>Aviation & Logistics</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-cloud"></i>
+        <h3>SaaS & Enterprise Tech</h3>
+      </div>
+      <div class="category-card" onclick="window.location.href='404.html'">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <h3>Consumer & Retail</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CASE STUDY SPOTLIGHT (RECIPE INSPIRATION) -->
+  <section class="recipes-section container section-padding" style="padding-top: 0;">
+    <div class="section-header">
+      <h2>Case Study Spotlights</h2>
+      <p>Transformative outcomes achieved alongside our executive partners</p>
+    </div>
+    <div class="recipe-grid">
+      <!-- Study 1 -->
+      <div class="recipe-card" data-aos="fade-up">
+        <div class="recipe-image">
+          <img src="images/img_126.webp" alt="Global Media Consolidation">
+          <span class="recipe-tag"><i class="fa-solid fa-trophy"></i> 2.8x Value</span>
+        </div>
+        <div class="recipe-content">
+          <span class="recipe-meta"><i class="fa-solid fa-building"></i> Media & Entertainment</span>
+          <h3>Global Streaming Consortium Valuation & Post-Merger Integration</h3>
+          <p>Guided board of directors through complex multi-jurisdiction regulatory approvals and unified cost synergies.</p>
+          <a href="404.html" class="recipe-link">Read Full Case Study <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <!-- Study 2 -->
+      <div class="recipe-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="recipe-image">
+          <img src="images/img_127.webp" alt="Supply Chain Resilience">
+          <span class="recipe-tag"><i class="fa-solid fa-chart-line"></i> +35% ROIC</span>
+        </div>
+        <div class="recipe-content">
+          <span class="recipe-meta"><i class="fa-solid fa-truck-fast"></i> Industrial Manufacturing</span>
+          <h3>Supply Chain Overhaul & Working Capital Debt Restructuring</h3>
+          <p>Re-engineered inventory pipelines and renegotiated $120M credit facilities across 14 manufacturing hubs.</p>
+          <a href="404.html" class="recipe-link">Read Full Case Study <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <!-- Study 3 -->
+      <div class="recipe-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="recipe-image">
+          <img src="images/img_128.webp" alt="Fintech Turnaround">
+          <span class="recipe-tag"><i class="fa-solid fa-seedling"></i> Series C to IPO</span>
+        </div>
+        <div class="recipe-content">
+          <span class="recipe-meta"><i class="fa-solid fa-vault"></i> FinTech & Banking</span>
+          <h3>Governance Architecture & IPO Readiness Program</h3>
+          <p>Instituted dual-class board protocols, Sarbanes-Oxley internal audits, and institutional investor roadshows.</p>
+          <a href="404.html" class="recipe-link">Read Full Case Study <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. WHY CHOOSE US (VALUES SECTION) -->
+  <section class="why-choose-us container section-padding" style="padding-top: 0;">
+    <div class="section-header">
+      <h2>The Stackly Advantage</h2>
+      <p>Why leading corporate leaders rely on our senior advisory partners</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item" data-aos="fade-up">
+        <div class="why-icon"><i class="fa-solid fa-user-tie"></i></div>
+        <h3>Senior Partner Delivery</h3>
+        <p>Every mandate is directed by seasoned Managing Partners, never delegated to junior analysts.</p>
+      </div>
+      <div class="why-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="why-icon"><i class="fa-solid fa-lock"></i></div>
+        <h3>Strict Confidentiality</h3>
+        <p>Bank-grade virtual data rooms, stringent non-disclosure governance, and conflict-free counsel.</p>
+      </div>
+      <div class="why-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="why-icon"><i class="fa-solid fa-calculator"></i></div>
+        <h3>Data-Driven Rigor</h3>
+        <p>Quantitative DCF modeling, predictive market simulations, and verified operational benchmarks.</p>
+      </div>
+      <div class="why-item" data-aos="fade-up" data-aos-delay="300">
+        <div class="why-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+        <h3>Aligned Incentives</h3>
+        <p>Flexible retainer and milestone-tied fee structures that tie our success directly to yours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. STATS COUNTER -->
+  <section class="stats-counter section-padding">
+    <div class="stats-grid container">
+      <div class="stat-item" data-aos="zoom-in">
+        <h3 class="counter">$2.4B+</h3>
+        <p>Advisory Mandates Closed</p>
+      </div>
+      <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+        <h3 class="counter">180+</h3>
+        <p>Enterprise Clients Advised</p>
+      </div>
+      <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="counter">98.4%</h3>
+        <p>Client Retainer Retention</p>
+      </div>
+      <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+        <h3 class="counter">24</h3>
+        <p>Global Strategic Hubs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. C-SUITE TESTIMONIALS -->
+  <section class="testimonials container section-padding">
+    <div class="section-header">
+      <h2>Executive Testimonials</h2>
+      <p>Direct perspectives from boardrooms and chief executive offices</p>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card" data-aos="fade-up">
+        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <p>"Stackly's M&A advisory team identified hidden operational risks in our $240M acquisition target that saved our shareholders tens of millions in integration friction."</p>
+        <div class="author-info">
+          <img src="images/Michael.webp" alt="Robert Vance">
+          <div>
+            <h4>Robert Vance</h4>
+            <span>Chief Executive Officer, Vanguard Logistics</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <p>"Their restructuring sprint delivered immediate cash flow visibility and allowed us to renegotiate long-term bank facilities without diluting our founding equity."</p>
+        <div class="author-info">
+          <img src="images/Elena.webp" alt="Elena Rostova">
+          <div>
+            <h4>Elena Rostova</h4>
+            <span>Chief Financial Officer, Apex Global Pharma</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <p>"Stackly brought profound governance discipline to our board ahead of our public filing. Their managing partners are the gold standard of modern strategy."</p>
+        <div class="author-info">
+          <img src="images/David.webp" alt="David Sterling">
+          <div>
+            <h4>David Sterling</h4>
+            <span>Managing Director, Horizon Capital Partners</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+        <p>"The enterprise transformation roadmap Stackly engineered accelerated our digital scale by two years while expanding operating margins across six global business units."</p>
+        <div class="author-info">
+          <img src="images/Emily.webp" alt="Emily Thorne">
+          <div>
+            <h4>Emily Thorne</h4>
+            <span>Chief Operating Officer, Novus Cloud Technologies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. CLIENT PORTAL ACCESS BANNER (APP DOWNLOAD SECTION) -->
+  <section class="app-download-section section-padding">
+    <div class="app-download-container container">
+      <div class="app-download-content" data-aos="fade-right">
+        <span class="badge" style="background: rgba(255,255,255,0.2); color: #fff;">Confidential Client Portal</span>
+        <h2>Access Strategic Mandates in Real-Time</h2>
+        <p>Monitor deal room progress, download financial models, and communicate securely with your designated Managing Partner via our encrypted executive portal.</p>
+        <div class="download-buttons">
+          <a href="404.html" class="btn btn-primary" style="background: #eab308; color: #000000; font-weight: 700;"><i class="fa-solid fa-arrow-right-to-bracket"></i> Client Portal Login</a>
+          <a href="404.html" class="btn btn-outline" style="border-color: #fff; color: #fff;"><i class="fa-solid fa-envelope"></i> Request Access Key</a>
+        </div>
+      </div>
+      <div class="app-download-image" data-aos="fade-left">
+        <img src="images/img_104.webp" alt="Stackly Executive Portal">
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. THOUGHT LEADERSHIP (BLOG HIGHLIGHTS) -->
+  <section class="blog-preview container section-padding">
+    <div class="section-header">
+      <h2>Executive Insights & Commentary</h2>
+      <p>Authoritative analyses of macroeconomic shifts, deal trends, and board governance</p>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card" data-aos="fade-up">
+        <div class="blog-img">
+          <img src="images/local_img_7.webp" alt="M&A Deal Dynamics">
+          <span class="blog-date">Oct 12, 2026</span>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">M&A Advisory</span>
+          <h3>Navigating Cross-Border Valuations Amid High Capital Costs</h3>
+          <p>How dealmakers are utilizing structured earnouts and vendor financing to bridge corporate valuation gaps.</p>
+          <a href="404.html" class="read-more">Read Full Analysis <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="blog-img">
+          <img src="images/local_img_1.webp" alt="Board Governance">
+          <span class="blog-date">Oct 08, 2026</span>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">Corporate Governance</span>
+          <h3>The 2026 Boardroom Risk Matrix: AI & Regulatory Disclosure</h3>
+          <p>Essential governance guidelines for audit committees balancing artificial intelligence adoption with SEC compliance.</p>
+          <a href="404.html" class="read-more">Read Full Analysis <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="blog-img">
+          <img src="images/local_img_2.webp" alt="Capital Allocation">
+          <span class="blog-date">Oct 01, 2026</span>
+        </div>
+        <div class="blog-content">
+          <span class="blog-category">Strategic Finance</span>
+          <h3>Disciplined Capital Allocation: Rebalancing Growth vs. ROIC</h3>
+          <p>Practical frameworks for executive leadership evaluating share repurchases versus transformative M&A.</p>
+          <a href="404.html" class="read-more">Read Full Analysis <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. ADVISORY FAQ SECTION -->
+  <section class="faq-section container section-padding" style="padding-top: 0;">
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Key information regarding our advisory engagements and onboarding</p>
+    </div>
+    <div class="faq-accordion" style="max-width: 800px; margin: 0 auto;">
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What is the standard engagement timeline for a strategic advisory mandate?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Engagements range from targeted 3-week valuation sprints and due diligence reviews to 6–12 month comprehensive enterprise transformation retainers. Each mandate begins with a 7-day diagnostic phase.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How does Stackly safeguard client confidentiality during deal negotiations?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>All client communications, models, and virtual data rooms are governed by bilateral non-disclosure agreements, end-to-end encryption protocols, and compartmentalized deal teams.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What is the structure of your advisory fees?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We provide transparent fee schedules comprising fixed diagnostic sprint fees, monthly advisory retainers, and success-aligned milestones for completed M&A transactions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. EXECUTIVE BRIEFING SUBSCRIPTION -->
+  <section class="newsletter container section-padding">
+    <div class="news-content" data-aos="fade-up">
+      <h2>Subscribe to The Stackly Executive Brief</h2>
+      <p>Receive bi-weekly strategic intelligence, economic forecasts, and deal commentaries curated by our senior partners.</p>
+      <form class="news-form" action="404.html">
+        <input type="email" placeholder="Enter your corporate email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid container">
+      <div class="footer-col">
+        <a href="index.html" class="nav-logo"><img src="./images//logo-dark.webp" alt="STACKLY Logo" class="nav-logo-img" /></a>
+        <p style="margin-top: 1rem; color: #aaa;">Premier strategic business advisory firm empowering enterprise leaders with actionable intelligence and sustainable scale.</p>
+        <div class="socials" style="margin-top: 1rem; display: flex; gap: 1rem;">
+          <a href="404.html" style="color: #fff;"><i class="fa-brands fa-facebook"></i></a>
+          <a href="404.html" style="color: #fff;"><i class="fa-brands fa-twitter"></i></a>
+          <a href="404.html" style="color: #fff;"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="service.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Practice Areas</h4>
+        <ul>
+          <li><a href="404.html">Corporate Strategy</a></li>
+          <li><a href="404.html">M&A & Deal Advisory</a></li>
+          <li><a href="404.html">Financial Restructuring</a></li>
+          <li><a href="404.html">Operations Scaling</a></li>
+          <li><a href="404.html">Board Governance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Global Head Office</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> MMR Complex, Executive Tower, Salem, TN 636008</li>
+          <li><a href="404.html"><i class="fa-solid fa-phone"></i> +91 98765 43210</a></li>
+          <li><a href="404.html"><i class="fa-solid fa-envelope"></i> advisory@stackly.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Stackly Business Advisory. All rights reserved. Confidentiality & Non-Disclosure Protected.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if(typeof AOS !== 'undefined') {
+            AOS.init({ duration: 800, once: true, offset: 100 });
+        }
+    });
+  </script>
+</body>
+</html>
