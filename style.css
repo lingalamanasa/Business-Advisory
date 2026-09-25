@@ -2186,7 +2186,7 @@ html.menu-open {
 /* BLOG PAGE STYLES */
 /* ========================================= */
 .blog-hero {
-  background: linear-gradient(to right, rgba(15, 25, 15, 0.95) 0%, rgba(15, 25, 15, 0.8) 45%, rgba(0,0,0,0.1) 100%), url('images/img_css_3.webp');
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.94) 0%, rgba(15, 23, 42, 0.8) 45%, rgba(15, 23, 42, 0.2) 100%), url('images/blog_hero_bg.webp');
   background-size: cover;
   background-position: center;
   border-radius: 20px;
