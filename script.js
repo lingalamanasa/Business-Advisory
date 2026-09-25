@@ -1,25 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Mobile Menu Toggle
+    // 1. Spring Board Mobile Menu Navigation & Overlay
     const mobileMenuBtn = document.getElementById("mobile-menu");
     const nav = document.querySelector("nav");
 
     if (mobileMenuBtn && nav) {
-        const icon = mobileMenuBtn.querySelector("i");
-        const toggleMenu = (open) => {
-            const shouldOpen = open !== undefined ? open : !nav.classList.contains("active");
-            if (shouldOpen) {
-                nav.classList.add("active");
-                if (icon) {
-                    icon.classList.remove("fa-bars");
-                    icon.classList.add("fa-xmark");
-                }
-            } else {
-                nav.classList.remove("active");
-                if (icon) {
-                    icon.classList.remove("fa-xmark");
-                    icon.classList.add("fa-bars");
-                }
+        // Ensure backdrop overlay exists
+        let navOverlay = document.querySelector(".nav-overlay");
+        if (!navOverlay) {
+            navOverlay = document.createElement("div");
+            navOverlay.className = "nav-overlay";
+            document.body.appendChild(navOverlay);
+        }
+
+        // Add Font Awesome arrow icons to nav links if not present (pure FA icons)
+        nav.querySelectorAll("ul li a").forEach(a => {
+            if (!a.querySelector("i")) {
+                const arrow = document.createElement("i");
+                arrow.className = "fa-solid fa-arrow-right";
+                arrow.setAttribute("aria-hidden", "true");
+                a.appendChild(arrow);
             }
+        });
+
+        // Set sequential spring animation indices
+        const menuItems = nav.querySelectorAll("ul > li, .auth-mobile a");
+        menuItems.forEach((item, idx) => {
+            item.style.setProperty("--item-idx", idx);
+        });
+
+        const icon = mobileMenuBtn.querySelector("i");
+
+        const openMenu = () => {
+            nav.classList.add("active");
+            navOverlay.classList.add("active");
+            mobileMenuBtn.classList.add("open");
+            mobileMenuBtn.setAttribute("aria-expanded", "true");
+            document.body.classList.add("menu-open");
+            document.documentElement.classList.add("menu-open");
+            if (icon) {
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+            }
+        };
+
+        const closeMenu = () => {
+            nav.classList.remove("active");
+            navOverlay.classList.remove("active");
+            mobileMenuBtn.classList.remove("open");
+            mobileMenuBtn.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("menu-open");
+            document.documentElement.classList.remove("menu-open");
+            if (icon) {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+            }
+        };
+
+        const toggleMenu = () => {
+            const isOpen = nav.classList.contains("active");
+            isOpen ? closeMenu() : openMenu();
         };
 
         mobileMenuBtn.addEventListener("click", (e) => {
@@ -27,19 +66,39 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleMenu();
         });
 
+        // Close when clicking overlay
+        navOverlay.addEventListener("click", () => {
+            closeMenu();
+        });
+
         // Close when clicking outside
         document.addEventListener("click", (e) => {
             if (nav.classList.contains("active") && !nav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                toggleMenu(false);
+                closeMenu();
             }
         });
 
         // Close when clicking any nav link
         nav.querySelectorAll("a").forEach(a => {
             a.addEventListener("click", () => {
-                toggleMenu(false);
+                closeMenu();
             });
         });
+
+        // Close on Escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && nav.classList.contains("active")) {
+                closeMenu();
+                mobileMenuBtn.focus();
+            }
+        });
+
+        // Auto-close on resize if viewport expands beyond mobile breakpoint (992px)
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 992 && nav.classList.contains("active")) {
+                closeMenu();
+            }
+        }, { passive: true });
     }
 
     // 1.5. Hero Background Slideshow (Cross-fade one by one)
@@ -175,4 +234,70 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // 7. Tasteful Wobble Card Enter Animation
+    function initWobbleCards() {
+        const cardSelectors = [
+            '.wobble-card',
+            '[data-wobble]',
+            '.diet-card',
+            '.deal-card',
+            '.service-card-clean',
+            '.service-card',
+            '.step-card',
+            '.recipe-card',
+            '.farmer-card',
+            '.testimonial-card',
+            '.blog-card',
+            '.category-card',
+            '.product-card',
+            '.values-card',
+            '.value-card',
+            '.stat-card',
+            '.stat-item',
+            '.faq-item',
+            '.office-card',
+            '.contact-card'
+        ].join(',');
+
+        const cards = Array.from(document.querySelectorAll(cardSelectors));
+        if (!cards.length) return;
+
+        // Stagger siblings in grid containers with --wobble-delay
+        const parents = new Set(cards.map(c => c.parentElement).filter(Boolean));
+        parents.forEach(parent => {
+            const siblings = Array.from(parent.querySelectorAll(':scope > ' + cardSelectors.split(',').join(', :scope > ')));
+            siblings.forEach((card, idx) => {
+                if (!card.style.getPropertyValue('--wobble-delay')) {
+                    card.style.setProperty('--wobble-delay', idx % 4);
+                }
+                card.classList.add('wobble-card');
+            });
+        });
+
+        // If reduced motion or no IntersectionObserver, reveal immediately
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+            cards.forEach(card => card.classList.add('wobble-revealed'));
+            return;
+        }
+
+        const wobbleObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('wobble-revealed');
+                        wobbleObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
+        );
+
+        cards.forEach(card => {
+            card.classList.add('wobble-card');
+            wobbleObserver.observe(card);
+        });
+    }
+
+    initWobbleCards();
 });
