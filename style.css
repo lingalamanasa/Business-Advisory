@@ -1175,7 +1175,8 @@ html.menu-open {
   .features { gap: 1.8rem; }
 }
 
-.nav-drawer-arrow {
+.nav-drawer-arrow,
+.drawer-top {
   display: none !important;
 }
 
@@ -1267,9 +1268,10 @@ html.menu-open {
     height: 100vh;
     height: 100dvh;
     background-color: #ffffff;
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 5.5rem 1.75rem 2.5rem;
+    padding: 1.25rem 1.5rem 2rem;
     box-shadow: -10px 0 35px rgba(0, 0, 0, 0.15);
     transform: translateX(105%);
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1282,12 +1284,62 @@ html.menu-open {
     transform: translateX(0);
   }
 
+  /* Drawer Top Brand Header */
+  .drawer-top {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+  }
+
+  .drawer-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .drawer-logo-img {
+    height: 38px;
+    max-height: 42px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .drawer-close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    color: #18181b;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .drawer-close-btn:hover,
+  .drawer-close-btn:active {
+    background: #fee2e2;
+    color: #dc2626;
+    border-color: #fca5a5;
+  }
+
   nav ul {
+    display: flex;
     flex-direction: column;
     width: 100%;
-    gap: 0.5rem;
+    gap: 0.4rem;
     margin-bottom: auto;
     padding: 0;
+    list-style: none;
   }
 
   /* Spring Board sequential entrance for menu items */
@@ -1306,93 +1358,133 @@ html.menu-open {
     transform: translateX(0) scale(1);
   }
 
-  nav a {
+  nav ul li a {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     padding: 0.85rem 1rem;
-    font-size: 1.0625rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--dark-text);
     border-radius: 10px;
     border-bottom: none !important;
+    text-decoration: none;
     min-height: 44px;
     transition: all 0.22s ease;
   }
 
-  nav a i {
+  nav ul li a i {
     display: inline-flex !important;
     font-size: 0.85rem;
     color: #a1a1aa;
     transition: transform 0.25s ease, color 0.25s ease;
   }
 
-  nav a:hover,
-  nav a.active {
+  nav ul li a:hover,
+  nav ul li a.active {
     background: rgba(234, 179, 8, 0.12);
     color: #000;
     padding-left: 1.25rem;
     border-bottom: none !important;
   }
 
-  nav a:hover i,
-  nav a.active i {
+  nav ul li a:hover i,
+  nav ul li a.active i {
     color: var(--dark-text);
     transform: translateX(4px);
   }
 
+  /* Auth Actions inside Mobile Drawer */
   .auth-mobile {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.75rem;
     width: 100%;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
     border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+  }
+
+  .auth-mobile a {
+    text-decoration: none !important;
   }
 
   .auth-mobile .btn-login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    padding: 0.75rem 1.2rem;
-    border: 1.5px solid var(--dark-text);
-    border-radius: 8px;
-    font-weight: 600;
-    color: var(--dark-text);
-    text-decoration: none;
-    min-height: 44px;
-    transition: all 0.22s ease;
-    box-sizing: border-box;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    padding: 0.85rem 1.2rem !important;
+    background: #ffffff !important;
+    border: 2px solid #18181b !important;
+    border-radius: 10px !important;
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #18181b !important;
+    min-height: 48px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+    text-decoration: none !important;
   }
 
-  .auth-mobile .btn-login:hover {
-    background: var(--dark-text);
-    color: #fff;
+  .auth-mobile .btn-login i {
+    color: #18181b !important;
+    font-size: 1rem !important;
+    display: inline-flex !important;
+    transform: none !important;
+  }
+
+  .auth-mobile .btn-login:hover,
+  .auth-mobile .btn-login:active {
+    background: #18181b !important;
+    color: #ffffff !important;
+    border-color: #18181b !important;
+  }
+
+  .auth-mobile .btn-login:hover i,
+  .auth-mobile .btn-login:active i {
+    color: #ffffff !important;
   }
 
   .auth-mobile .btn-signup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-    padding: 0.75rem 1.2rem;
-    background: var(--primary-green);
-    border: 1.5px solid var(--primary-green);
-    border-radius: 8px;
-    font-weight: 700;
-    color: #000;
-    text-decoration: none;
-    min-height: 44px;
-    transition: all 0.22s ease;
-    box-sizing: border-box;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.65rem !important;
+    width: 100% !important;
+    padding: 0.85rem 1.2rem !important;
+    background: #eab308 !important;
+    border: 2px solid #eab308 !important;
+    border-radius: 10px !important;
+    font-size: 1rem !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    min-height: 48px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 14px rgba(234, 179, 8, 0.35) !important;
+    text-decoration: none !important;
   }
 
-  .auth-mobile .btn-signup:hover {
-    background: var(--primary-hover);
-    border-color: var(--primary-hover);
+  .auth-mobile .btn-signup i {
+    color: #000000 !important;
+    font-size: 1rem !important;
+    display: inline-flex !important;
+    transform: none !important;
+  }
+
+  .auth-mobile .btn-signup:hover,
+  .auth-mobile .btn-signup:active {
+    background: #ca8a04 !important;
+    border-color: #ca8a04 !important;
+    color: #000000 !important;
+    box-shadow: 0 6px 18px rgba(202, 138, 4, 0.45) !important;
   }
 }
 

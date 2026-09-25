@@ -12,6 +12,30 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.appendChild(navOverlay);
         }
 
+        // Ensure brand header inside mobile drawer with STACKLY Logo & close button
+        let drawerTop = nav.querySelector(".drawer-top");
+        if (!drawerTop) {
+            drawerTop = document.createElement("div");
+            drawerTop.className = "drawer-top";
+            drawerTop.innerHTML = `
+                <a href="index.html" class="drawer-logo" aria-label="Stackly Home">
+                    <img src="images/logo-dark.webp" alt="STACKLY Logo" class="drawer-logo-img" />
+                </a>
+                <button type="button" class="drawer-close-btn" aria-label="Close menu">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            `;
+            nav.prepend(drawerTop);
+        }
+
+        const drawerClose = nav.querySelector(".drawer-close-btn");
+        if (drawerClose) {
+            drawerClose.addEventListener("click", (e) => {
+                e.stopPropagation();
+                closeMenu();
+            });
+        }
+
         // Add Font Awesome arrow icons to nav links for mobile drawer only (pure FA icons)
         nav.querySelectorAll("ul li a").forEach(a => {
             if (!a.querySelector(".nav-drawer-arrow")) {
@@ -78,10 +102,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // Close when clicking any nav link
-        nav.querySelectorAll("a").forEach(a => {
-            a.addEventListener("click", () => {
-                closeMenu();
+        // Close when clicking any nav link & allow page transitions smoothly
+        nav.querySelectorAll("ul li a, .auth-mobile a").forEach(a => {
+            a.addEventListener("click", (e) => {
+                const href = a.getAttribute("href");
+                if (href && href.startsWith("#")) {
+                    closeMenu();
+                } else {
+                    closeMenu();
+                }
             });
         });
 
