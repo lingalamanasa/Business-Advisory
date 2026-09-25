@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Executive Client Portal - STACKLY Business Advisory</title>
-  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="dashboard.css?v=2.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
@@ -126,36 +126,42 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>#ADV-89012</strong></td>
-                <td>Cross-Border M&A Synergies & Valuation Model</td>
-                <td>Dr. Arthur Vance</td>
-                <td><strong>$85,000</strong></td>
-                <td><span class="status processing">In Progress</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-route"></i> Milestones</button>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-invoice"></i> Fee Note</button>
+                <td data-label="Mandate ID"><strong>#ADV-89012</strong></td>
+                <td data-label="Target / Scope"><strong>Cross-Border M&A Synergies & Valuation Model</strong></td>
+                <td data-label="Lead Partner">Dr. Arthur Vance</td>
+                <td data-label="Retainer Fee"><strong>$85,000</strong></td>
+                <td data-label="Status"><span class="status processing"><i class="fa-solid fa-clock"></i> In Progress</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-route"></i> Milestones</button>
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-invoice"></i> Fee Note</button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td><strong>#ADV-88745</strong></td>
-                <td>Corporate Restructuring & Debt Optimization</td>
-                <td>Elena Rostova</td>
-                <td><strong>$60,000</strong></td>
-                <td><span class="status delivered">Completed</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-invoice"></i> Fee Note</button>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Renew</button>
+                <td data-label="Mandate ID"><strong>#ADV-88745</strong></td>
+                <td data-label="Target / Scope"><strong>Corporate Restructuring & Debt Optimization</strong></td>
+                <td data-label="Lead Partner">Elena Rostova</td>
+                <td data-label="Retainer Fee"><strong>$60,000</strong></td>
+                <td data-label="Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Completed</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-invoice"></i> Fee Note</button>
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Renew</button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td><strong>#ADV-88532</strong></td>
-                <td>Board Governance & SEC Disclosure Audit</td>
-                <td>Marcus Sterling</td>
-                <td><strong>$42,500</strong></td>
-                <td><span class="status delivered">Completed</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-invoice"></i> Fee Note</button>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Renew</button>
+                <td data-label="Mandate ID"><strong>#ADV-88532</strong></td>
+                <td data-label="Target / Scope"><strong>Board Governance & SEC Disclosure Audit</strong></td>
+                <td data-label="Lead Partner">Marcus Sterling</td>
+                <td data-label="Retainer Fee"><strong>$42,500</strong></td>
+                <td data-label="Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Completed</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-invoice"></i> Fee Note</button>
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Renew</button>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -189,47 +195,55 @@
             </thead>
             <tbody>
               <tr data-type="active">
-                <td><strong>#ADV-89012</strong></td>
-                <td>Initiated Sep 15, 2026</td>
-                <td>Cross-Border M&A Synergies, Target DCF Valuation, Commercial Due Diligence</td>
-                <td><strong>$85,000</strong></td>
-                <td><span class="status processing">In Progress</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-route"></i> Milestones</button>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Fee Note</button>
+                <td data-label="Mandate ID"><strong>#ADV-89012</strong></td>
+                <td data-label="Engagement Date">Initiated Sep 15, 2026</td>
+                <td data-label="Strategic Deliverables Scope"><strong>Cross-Border M&A Synergies</strong><div style="font-size: 0.82rem; color: #64748b; margin-top: 0.2rem;">Target DCF Valuation, Commercial Due Diligence</div></td>
+                <td data-label="Retainer / Fee"><strong>$85,000</strong></td>
+                <td data-label="Status"><span class="status processing"><i class="fa-solid fa-clock"></i> In Progress</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-route"></i> Milestones</button>
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Fee Note</button>
+                  </div>
                 </td>
               </tr>
               <tr data-type="delivered">
-                <td><strong>#ADV-88745</strong></td>
-                <td>Completed Oct 18, 2026</td>
-                <td>Balance Sheet Restructuring, Debt Maturity Realignment, Working Capital Sprint</td>
-                <td><strong>$60,000</strong></td>
-                <td><span class="status delivered">Completed</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Fee Note</button>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Follow-up</button>
+                <td data-label="Mandate ID"><strong>#ADV-88745</strong></td>
+                <td data-label="Engagement Date">Completed Oct 18, 2026</td>
+                <td data-label="Strategic Deliverables Scope"><strong>Balance Sheet Restructuring</strong><div style="font-size: 0.82rem; color: #64748b; margin-top: 0.2rem;">Debt Maturity Realignment, Working Capital Sprint</div></td>
+                <td data-label="Retainer / Fee"><strong>$60,000</strong></td>
+                <td data-label="Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Completed</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Fee Note</button>
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Follow-up</button>
+                  </div>
                 </td>
               </tr>
               <tr data-type="delivered">
-                <td><strong>#ADV-88532</strong></td>
-                <td>Completed Oct 10, 2026</td>
-                <td>Board Governance Policy Framework, SEC Disclosure Audit, ESG Committee Charter</td>
-                <td><strong>$42,500</strong></td>
-                <td><span class="status delivered">Completed</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Fee Note</button>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Follow-up</button>
+                <td data-label="Mandate ID"><strong>#ADV-88532</strong></td>
+                <td data-label="Engagement Date">Completed Oct 10, 2026</td>
+                <td data-label="Strategic Deliverables Scope"><strong>Board Governance Policy Framework</strong><div style="font-size: 0.82rem; color: #64748b; margin-top: 0.2rem;">SEC Disclosure Audit, ESG Committee Charter</div></td>
+                <td data-label="Retainer / Fee"><strong>$42,500</strong></td>
+                <td data-label="Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Completed</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Fee Note</button>
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Follow-up</button>
+                  </div>
                 </td>
               </tr>
               <tr data-type="cancelled">
-                <td><strong>#ADV-88120</strong></td>
-                <td>Archived Aug 28, 2026</td>
-                <td>Distressed Asset Carve-Out Feasibility Assessment</td>
-                <td><strong>$25,000</strong></td>
-                <td><span class="status cancelled">Terminated (Early Exit)</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Settlement</button>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Re-open</button>
+                <td data-label="Mandate ID"><strong>#ADV-88120</strong></td>
+                <td data-label="Engagement Date">Archived Aug 28, 2026</td>
+                <td data-label="Strategic Deliverables Scope"><strong>Distressed Asset Carve-Out</strong><div style="font-size: 0.82rem; color: #64748b; margin-top: 0.2rem;">Feasibility & Liquidation Assessment</div></td>
+                <td data-label="Retainer / Fee"><strong>$25,000</strong></td>
+                <td data-label="Status"><span class="status cancelled"><i class="fa-solid fa-ban"></i> Terminated (Early Exit)</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-file-pdf"></i> Settlement</button>
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-repeat"></i> Re-open</button>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -260,7 +274,7 @@
             </thead>
             <tbody id="wishlistTbody">
               <tr>
-                <td>
+                <td data-label="Advisory Framework / Blueprint">
                   <div class="product-cell">
                     <img src="./images/img_114.webp" class="product-thumb" alt="M&A Valuation Model">
                     <div>
@@ -269,16 +283,18 @@
                     </div>
                   </div>
                 </td>
-                <td>M&A Deal Advisory</td>
-                <td><strong>Privileged & Confidential</strong></td>
-                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
-                <td>
-                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Practice Area">M&A Deal Advisory</td>
+                <td data-label="Classification"><strong>Privileged & Confidential</strong></td>
+                <td data-label="Access Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Advisory Framework / Blueprint">
                   <div class="product-cell">
                     <img src="./images/img_115.webp" class="product-thumb" alt="Capital Allocation Matrix">
                     <div>
@@ -287,16 +303,18 @@
                     </div>
                   </div>
                 </td>
-                <td>Corporate Strategy</td>
-                <td><strong>Internal Board Memo</strong></td>
-                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
-                <td>
-                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Practice Area">Corporate Strategy</td>
+                <td data-label="Classification"><strong>Internal Board Memo</strong></td>
+                <td data-label="Access Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Advisory Framework / Blueprint">
                   <div class="product-cell">
                     <img src="./images/img_116.webp" class="product-thumb" alt="Board Governance Playbook">
                     <div>
@@ -305,16 +323,18 @@
                     </div>
                   </div>
                 </td>
-                <td>Board Governance</td>
-                <td><strong>Compliance Document</strong></td>
-                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
-                <td>
-                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Practice Area">Board Governance</td>
+                <td data-label="Classification"><strong>Compliance Document</strong></td>
+                <td data-label="Access Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Advisory Framework / Blueprint">
                   <div class="product-cell">
                     <img src="./images/img_117.webp" class="product-thumb" alt="Post-Merger Synergy">
                     <div>
@@ -323,16 +343,18 @@
                     </div>
                   </div>
                 </td>
-                <td>M&A Deal Advisory</td>
-                <td><strong>Partner Strategy Brief</strong></td>
-                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
-                <td>
-                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Practice Area">M&A Deal Advisory</td>
+                <td data-label="Classification"><strong>Partner Strategy Brief</strong></td>
+                <td data-label="Access Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Advisory Framework / Blueprint">
                   <div class="product-cell">
                     <img src="./images/img_118.webp" class="product-thumb" alt="Digital Transformation">
                     <div>
@@ -341,16 +363,18 @@
                     </div>
                   </div>
                 </td>
-                <td>Operational Scaling</td>
-                <td><strong>Advisory Brief</strong></td>
-                <td><span style="color: var(--success); font-weight: 600;"><i class="fa-solid fa-check"></i> Available</span></td>
-                <td>
-                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Practice Area">Operational Scaling</td>
+                <td data-label="Classification"><strong>Advisory Brief</strong></td>
+                <td data-label="Access Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Available</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-download"></i> Download</button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Advisory Framework / Blueprint">
                   <div class="product-cell">
                     <img src="./images/img_119.webp" class="product-thumb" alt="Turnaround Diagnostic">
                     <div>
@@ -359,12 +383,14 @@
                     </div>
                   </div>
                 </td>
-                <td>Financial Restructuring</td>
-                <td><strong>Restricted Access</strong></td>
-                <td><span style="color: var(--warning); font-weight: 600;"><i class="fa-solid fa-lock"></i> Retainer Required</span></td>
-                <td>
-                  <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-key"></i> Unlock</button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Practice Area">Financial Restructuring</td>
+                <td data-label="Classification"><strong>Restricted Access</strong></td>
+                <td data-label="Access Status"><span class="status processing"><i class="fa-solid fa-lock"></i> Retainer Required</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-key"></i> Unlock</button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'" title="Archive"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -806,6 +832,21 @@
   </div>
 
   <script>
+    // --- Automatic Mobile Table Card Labels ---
+    function initMobileTableLabels() {
+      document.querySelectorAll(".table-container table").forEach(table => {
+        const headers = Array.from(table.querySelectorAll("thead th")).map(th => th.textContent.trim());
+        table.querySelectorAll("tbody tr").forEach(tr => {
+          tr.querySelectorAll("td").forEach((td, idx) => {
+            if (headers[idx] && !td.getAttribute("data-label")) {
+              td.setAttribute("data-label", headers[idx]);
+            }
+          });
+        });
+      });
+    }
+    document.addEventListener("DOMContentLoaded", initMobileTableLabels);
+
     // --- Dynamic User Profile Loading ---
     document.addEventListener("DOMContentLoaded", () => {
       const email = localStorage.getItem('stackly_email') || localStorage.getItem('userEmail') || localStorage.getItem('email');

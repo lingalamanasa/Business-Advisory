@@ -467,3 +467,284 @@ tbody tr:hover { background: rgba(0,0,0,0.01); }
   object-fit: cover;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   MOBILE DASHBOARD TABLE-TO-CARD TRANSFORMATION (STYLE LIKE REFERENCE IMAGE 2)
+   Transforms dense data tables on mobile into beautiful, high-clarity cards
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .table-container {
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow-x: visible !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .table-header {
+    min-width: 0 !important;
+    padding: 0.5rem 0.2rem 1rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
+
+  .table-header h3 {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: var(--dark-text) !important;
+    margin: 0 !important;
+  }
+
+  .btn-view-all {
+    font-size: 0.82rem !important;
+    padding: 0.4rem 0.85rem !important;
+  }
+
+  /* Filter pill horizontal scroller on mobile */
+  .filter-pills-bar {
+    display: flex !important;
+    gap: 0.5rem !important;
+    overflow-x: auto !important;
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 1.25rem !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .filter-pills-bar::-webkit-scrollbar {
+    display: none !important;
+  }
+  .filter-pill {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    font-size: 0.85rem !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 50px !important;
+  }
+
+  /* Table structure reset to block cards */
+  .table-container table {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    border: none !important;
+  }
+
+  .table-container thead {
+    display: none !important;
+  }
+
+  .table-container tbody {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.15rem !important;
+    width: 100% !important;
+  }
+
+  /* The Card Container matching Reference Image 2 */
+  .table-container tbody tr {
+    display: flex !important;
+    flex-direction: column !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    padding: 1.25rem 1.35rem !important;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+  }
+
+  .table-container tbody tr:hover {
+    background: #ffffff !important;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08) !important;
+  }
+
+  /* Each Row in the Card */
+  .table-container tbody tr td {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.68rem 0 !important;
+    border: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    font-size: 0.92rem !important;
+    color: #1e293b !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: right !important;
+    background: transparent !important;
+  }
+
+  /* Hide border on last cell */
+  .table-container tbody tr td:last-child {
+    border-bottom: none !important;
+    padding-bottom: 0.2rem !important;
+  }
+
+  /* Left-side uppercase attribute label matching reference (e.g. LOCATION, SLA WINDOW, ASSIGNED OFFICER) */
+  .table-container tbody tr td::before {
+    content: attr(data-label);
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: #64748b !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    text-align: left !important;
+    margin-right: 1rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* First row: ID Header (e.g. MANDATE ID, TICKET ID, REF #) */
+  .table-container tbody tr td:first-child,
+  .table-container tbody tr td[data-label*="ID"],
+  .table-container tbody tr td[data-label*="Id"],
+  .table-container tbody tr td[data-label*="Ref"] {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.75rem !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+  }
+  .table-container tbody tr td:first-child strong,
+  .table-container tbody tr td[data-label*="ID"] strong,
+  .table-container tbody tr td[data-label*="Id"] strong,
+  .table-container tbody tr td[data-label*="Ref"] strong {
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  /* Primary title & description blocks (e.g. CATEGORY & DEFECT / TARGET / SCOPE / BLUEPRINT) */
+  .table-container tbody tr td[data-label*="Scope"],
+  .table-container tbody tr td[data-label*="Target"],
+  .table-container tbody tr td[data-label*="Deliverable"],
+  .table-container tbody tr td[data-label*="Discipline"],
+  .table-container tbody tr td[data-label*="Framework"],
+  .table-container tbody tr td[data-label*="Blueprint"],
+  .table-container tbody tr td[data-label*="Topic"],
+  .table-container tbody tr td[data-label*="Organization"],
+  .table-container tbody tr td[data-label*="Inquirer"],
+  .table-container tbody tr td[data-label*="Corporate Client"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    gap: 0.35rem !important;
+    padding: 0.75rem 0 !important;
+  }
+  .table-container tbody tr td[data-label*="Scope"]::before,
+  .table-container tbody tr td[data-label*="Target"]::before,
+  .table-container tbody tr td[data-label*="Deliverable"]::before,
+  .table-container tbody tr td[data-label*="Discipline"]::before,
+  .table-container tbody tr td[data-label*="Framework"]::before,
+  .table-container tbody tr td[data-label*="Blueprint"]::before,
+  .table-container tbody tr td[data-label*="Topic"]::before,
+  .table-container tbody tr td[data-label*="Organization"]::before,
+  .table-container tbody tr td[data-label*="Inquirer"]::before,
+  .table-container tbody tr td[data-label*="Corporate Client"]::before {
+    margin-right: 0 !important;
+    margin-bottom: 0.15rem !important;
+  }
+  .table-container tbody tr td[data-label*="Scope"] strong,
+  .table-container tbody tr td[data-label*="Target"] strong,
+  .table-container tbody tr td[data-label*="Deliverable"] strong,
+  .table-container tbody tr td[data-label*="Discipline"] strong,
+  .table-container tbody tr td[data-label*="Framework"] strong,
+  .table-container tbody tr td[data-label*="Blueprint"] strong,
+  .table-container tbody tr td[data-label*="Topic"] strong {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Product / Blueprint Cell inside Card */
+  .table-container .product-cell {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.85rem !important;
+    width: 100% !important;
+    text-align: left !important;
+  }
+  .table-container .product-thumb {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Status Badges inside Mobile Card matching Reference Image 2 */
+  .table-container tbody tr td .status {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    padding: 0.3rem 0.8rem !important;
+    border-radius: 20px !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+  }
+  .table-container tbody tr td .status.delivered {
+    background: #ecfdf5 !important;
+    color: #059669 !important;
+    border: 1px solid #a7f3d0 !important;
+  }
+  .table-container tbody tr td .status.processing {
+    background: #fffbeb !important;
+    color: #d97706 !important;
+    border: 1px solid #fde68a !important;
+  }
+  .table-container tbody tr td .status.cancelled {
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+    border: 1px solid #fecaca !important;
+  }
+
+  /* Actions row matching Reference Image 2: [ 🗎 Inspection Report ] style */
+  .table-container tbody tr td[data-label*="Action"],
+  .table-container tbody tr td[data-label*="Actions"] {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 0.85rem !important;
+    border-bottom: none !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+  }
+  .table-container tbody tr td .action-btn,
+  .table-container tbody tr td .btn-primary,
+  .table-container tbody tr td[data-label*="Action"] .action-btn,
+  .table-container tbody tr td[data-label*="Actions"] .action-btn,
+  .table-container tbody tr td[data-label*="Action"] .btn-primary,
+  .table-container tbody tr td[data-label*="Actions"] .btn-primary {
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    padding: 0.45rem 0.95rem !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+  }
+  .table-container tbody tr td .action-btn:hover,
+  .table-container tbody tr td .btn-primary:hover,
+  .table-container tbody tr td[data-label*="Action"] .action-btn:hover,
+  .table-container tbody tr td[data-label*="Actions"] .action-btn:hover {
+    background: #f8fafc !important;
+    border-color: #94a3b8 !important;
+    color: #0f172a !important;
+    transform: translateY(-1px) !important;
+  }
+}
+
+

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - Stackly Business Advisory</title>
-  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="dashboard.css?v=2.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
@@ -118,28 +118,28 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>#ADV-9024</strong></td>
-                <td>Apex Global Capital (Cross-Border M&A)</td>
-                <td>Dr. Arthur Vance</td>
-                <td><strong>$85,000</strong></td>
-                <td><span class="status processing">Due Diligence</span></td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'">Update Status</button></td>
+                <td data-label="Mandate ID"><strong>#ADV-9024</strong></td>
+                <td data-label="Corporate Client"><strong>Apex Global Capital</strong> (Cross-Border M&A)</td>
+                <td data-label="Practice Lead">Dr. Arthur Vance</td>
+                <td data-label="Retainer / Fee"><strong>$85,000</strong></td>
+                <td data-label="Status"><span class="status processing"><i class="fa-solid fa-clock"></i> Due Diligence</span></td>
+                <td data-label="Action"><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i> Update Status</button></td>
               </tr>
               <tr>
-                <td><strong>#ADV-9018</strong></td>
-                <td>Zenith Financial (Debt Restructuring)</td>
-                <td>Elena Rostova</td>
-                <td><strong>$60,000</strong></td>
-                <td><span class="status delivered">Completed</span></td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'">Update Status</button></td>
+                <td data-label="Mandate ID"><strong>#ADV-9018</strong></td>
+                <td data-label="Corporate Client"><strong>Zenith Financial</strong> (Debt Restructuring)</td>
+                <td data-label="Practice Lead">Elena Rostova</td>
+                <td data-label="Retainer / Fee"><strong>$60,000</strong></td>
+                <td data-label="Status"><span class="status delivered"><i class="fa-solid fa-check"></i> Completed</span></td>
+                <td data-label="Action"><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i> Update Status</button></td>
               </tr>
               <tr>
-                <td><strong>#ADV-9005</strong></td>
-                <td>Horizon BioTech (IPO Governance Audit)</td>
-                <td>Marcus Sterling</td>
-                <td><strong>$45,000</strong></td>
-                <td><span class="status processing">Board Review</span></td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'">Update Status</button></td>
+                <td data-label="Mandate ID"><strong>#ADV-9005</strong></td>
+                <td data-label="Corporate Client"><strong>Horizon BioTech</strong> (IPO Governance Audit)</td>
+                <td data-label="Practice Lead">Marcus Sterling</td>
+                <td data-label="Retainer / Fee"><strong>$45,000</strong></td>
+                <td data-label="Status"><span class="status processing"><i class="fa-solid fa-clock"></i> Board Review</span></td>
+                <td data-label="Action"><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i> Update Status</button></td>
               </tr>
             </tbody>
           </table>
@@ -175,7 +175,7 @@
             </thead>
             <tbody id="practiceCatalogTbody">
               <tr>
-                <td>
+                <td data-label="Practice Discipline">
                   <div class="product-cell">
                     <img src="./images/img_114.webp" class="product-thumb" alt="M&A Deal Advisory">
                     <div>
@@ -184,16 +184,18 @@
                     </div>
                   </div>
                 </td>
-                <td>Transaction Advisory</td>
-                <td><strong>$75,000 - $150,000</strong></td>
-                <td><span class="status processing">12 Active</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Category">Transaction Advisory</td>
+                <td data-label="Standard Retainer"><strong>$75,000 - $150,000</strong></td>
+                <td data-label="Active Engagements"><span class="status processing"><i class="fa-solid fa-clock"></i> 12 Active</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Practice Discipline">
                   <div class="product-cell">
                     <img src="./images/img_115.webp" class="product-thumb" alt="Corporate Strategy">
                     <div>
@@ -202,16 +204,18 @@
                     </div>
                   </div>
                 </td>
-                <td>Corporate Strategy</td>
-                <td><strong>$60,000 / Quarter</strong></td>
-                <td><span class="status delivered">8 Active</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Category">Corporate Strategy</td>
+                <td data-label="Standard Retainer"><strong>$60,000 / Quarter</strong></td>
+                <td data-label="Active Engagements"><span class="status delivered"><i class="fa-solid fa-check"></i> 8 Active</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Practice Discipline">
                   <div class="product-cell">
                     <img src="./images/img_116.webp" class="product-thumb" alt="Restructuring">
                     <div>
@@ -220,16 +224,18 @@
                     </div>
                   </div>
                 </td>
-                <td>Restructuring</td>
-                <td><strong>$50,000 - $120,000</strong></td>
-                <td><span class="status delivered">5 Active</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Category">Restructuring</td>
+                <td data-label="Standard Retainer"><strong>$50,000 - $120,000</strong></td>
+                <td data-label="Active Engagements"><span class="status delivered"><i class="fa-solid fa-check"></i> 5 Active</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td>
+                <td data-label="Practice Discipline">
                   <div class="product-cell">
                     <img src="./images/img_117.webp" class="product-thumb" alt="Board Governance">
                     <div>
@@ -238,12 +244,14 @@
                     </div>
                   </div>
                 </td>
-                <td>Governance</td>
-                <td><strong>$40,000 / Annual</strong></td>
-                <td><span class="status processing">3 Active</span></td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                <td data-label="Category">Governance</td>
+                <td data-label="Standard Retainer"><strong>$40,000 / Annual</strong></td>
+                <td data-label="Active Engagements"><span class="status processing"><i class="fa-solid fa-clock"></i> 3 Active</span></td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash-can"></i></button>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -275,36 +283,36 @@
             </thead>
             <tbody>
               <tr data-status="active">
-                <td><strong>#ADV-9024</strong></td>
-                <td>Apex Global Capital</td>
-                <td>Cross-Border M&A Synergies Valuation</td>
-                <td><strong>$85,000</strong></td>
-                <td><span class="status processing">Due Diligence</span></td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
+                <td data-label="Mandate ID"><strong>#ADV-9024</strong></td>
+                <td data-label="Client Enterprise"><strong>Apex Global Capital</strong></td>
+                <td data-label="Deliverable Scope">Cross-Border M&A Synergies Valuation</td>
+                <td data-label="Fee Note"><strong>$85,000</strong></td>
+                <td data-label="Pipeline Phase"><span class="status processing"><i class="fa-solid fa-clock"></i> Due Diligence</span></td>
+                <td data-label="Actions"><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
               </tr>
               <tr data-status="active">
-                <td><strong>#ADV-9011</strong></td>
-                <td>Vanguard Industrial Group</td>
-                <td>Working Capital Restructuring Sprint</td>
-                <td><strong>$65,000</strong></td>
-                <td><span class="status processing">Modeling Sprint</span></td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
+                <td data-label="Mandate ID"><strong>#ADV-9011</strong></td>
+                <td data-label="Client Enterprise"><strong>Vanguard Industrial Group</strong></td>
+                <td data-label="Deliverable Scope">Working Capital Restructuring Sprint</td>
+                <td data-label="Fee Note"><strong>$65,000</strong></td>
+                <td data-label="Pipeline Phase"><span class="status processing"><i class="fa-solid fa-clock"></i> Modeling Sprint</span></td>
+                <td data-label="Actions"><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
               </tr>
               <tr data-status="completed">
-                <td><strong>#ADV-8874</strong></td>
-                <td>Zenith Financial</td>
-                <td>Debt Maturity Realignment</td>
-                <td><strong>$60,000</strong></td>
-                <td><span class="status delivered">Completed</span></td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
+                <td data-label="Mandate ID"><strong>#ADV-8874</strong></td>
+                <td data-label="Client Enterprise"><strong>Zenith Financial</strong></td>
+                <td data-label="Deliverable Scope">Debt Maturity Realignment</td>
+                <td data-label="Fee Note"><strong>$60,000</strong></td>
+                <td data-label="Pipeline Phase"><span class="status delivered"><i class="fa-solid fa-check"></i> Completed</span></td>
+                <td data-label="Actions"><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
               </tr>
               <tr data-status="completed">
-                <td><strong>#ADV-8853</strong></td>
-                <td>Horizon BioTech</td>
-                <td>Pre-IPO Governance & Audit Charter</td>
-                <td><strong>$42,500</strong></td>
-                <td><span class="status delivered">Completed</span></td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
+                <td data-label="Mandate ID"><strong>#ADV-8853</strong></td>
+                <td data-label="Client Enterprise"><strong>Horizon BioTech</strong></td>
+                <td data-label="Deliverable Scope">Pre-IPO Governance & Audit Charter</td>
+                <td data-label="Fee Note"><strong>$42,500</strong></td>
+                <td data-label="Pipeline Phase"><span class="status delivered"><i class="fa-solid fa-check"></i> Completed</span></td>
+                <td data-label="Actions"><button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i> Update</button></td>
               </tr>
             </tbody>
           </table>
@@ -328,25 +336,25 @@
             </thead>
             <tbody>
               <tr>
-                <td><strong>Apex Global Capital Holdings LLC</strong></td>
-                <td>Sarah Jenkins (Managing Director)</td>
-                <td><span class="status delivered">Tier 1 Retainer</span></td>
-                <td>$380M Transaction Scope</td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'">View Profile</button></td>
+                <td data-label="Client Organization"><strong>Apex Global Capital Holdings LLC</strong></td>
+                <td data-label="Primary Signatory">Sarah Jenkins (Managing Director)</td>
+                <td data-label="Tier"><span class="status delivered"><i class="fa-solid fa-check"></i> Tier 1 Retainer</span></td>
+                <td data-label="Total Value Advised"><strong>$380M</strong> Transaction Scope</td>
+                <td data-label="Actions"><button class="action-btn" onclick="window.location.href='404.html'">View Profile</button></td>
               </tr>
               <tr>
-                <td><strong>Zenith Financial Partners</strong></td>
-                <td>Marcus Sterling (Chairman)</td>
-                <td><span class="status delivered">Tier 1 Retainer</span></td>
-                <td>$120M Credit Restructuring</td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'">View Profile</button></td>
+                <td data-label="Client Organization"><strong>Zenith Financial Partners</strong></td>
+                <td data-label="Primary Signatory">Marcus Sterling (Chairman)</td>
+                <td data-label="Tier"><span class="status delivered"><i class="fa-solid fa-check"></i> Tier 1 Retainer</span></td>
+                <td data-label="Total Value Advised"><strong>$120M</strong> Credit Restructuring</td>
+                <td data-label="Actions"><button class="action-btn" onclick="window.location.href='404.html'">View Profile</button></td>
               </tr>
               <tr>
-                <td><strong>Vanguard Industrial Group</strong></td>
-                <td>Robert Vance (Chief Executive Officer)</td>
-                <td><span class="status processing">Sprint Mandate</span></td>
-                <td>$90M Facility Optimization</td>
-                <td><button class="action-btn" onclick="window.location.href='404.html'">View Profile</button></td>
+                <td data-label="Client Organization"><strong>Vanguard Industrial Group</strong></td>
+                <td data-label="Primary Signatory">Robert Vance (Chief Executive Officer)</td>
+                <td data-label="Tier"><span class="status processing"><i class="fa-solid fa-clock"></i> Sprint Mandate</span></td>
+                <td data-label="Total Value Advised"><strong>$90M</strong> Facility Optimization</td>
+                <td data-label="Actions"><button class="action-btn" onclick="window.location.href='404.html'">View Profile</button></td>
               </tr>
             </tbody>
           </table>
@@ -370,23 +378,27 @@
             </thead>
             <tbody id="inquiriesTbody">
               <tr>
-                <td><strong>#INQ-4821</strong></td>
-                <td>Horizon BioTech (David Sterling, CFO)</td>
-                <td>Emergency Valuation Sensitivity Review</td>
-                <td>2 Hours Ago</td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-reply"></i> Reply</button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-box-archive"></i></button>
+                <td data-label="Ref #"><strong>#INQ-4821</strong></td>
+                <td data-label="Organization & Inquirer"><strong>Horizon BioTech</strong><div style="font-size: 0.82rem; color: #64748b;">David Sterling, CFO</div></td>
+                <td data-label="Topic / Scope">Emergency Valuation Sensitivity Review</td>
+                <td data-label="Submitted">2 Hours Ago</td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-reply"></i> Reply</button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-box-archive"></i></button>
+                  </div>
                 </td>
               </tr>
               <tr>
-                <td><strong>#INQ-4790</strong></td>
-                <td>Continental Logistics Corp (Legal Counsel)</td>
-                <td>Antitrust Regulatory Advisory Request</td>
-                <td>Yesterday</td>
-                <td>
-                  <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-reply"></i> Reply</button>
-                  <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-box-archive"></i></button>
+                <td data-label="Ref #"><strong>#INQ-4790</strong></td>
+                <td data-label="Organization & Inquirer"><strong>Continental Logistics Corp</strong><div style="font-size: 0.82rem; color: #64748b;">Legal Counsel</div></td>
+                <td data-label="Topic / Scope">Antitrust Regulatory Advisory Request</td>
+                <td data-label="Submitted">Yesterday</td>
+                <td data-label="Actions">
+                  <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <button class="action-btn" onclick="window.location.href='404.html'"><i class="fa-solid fa-reply"></i> Reply</button>
+                    <button class="action-btn" style="color: var(--danger);" onclick="window.location.href='404.html'"><i class="fa-solid fa-box-archive"></i></button>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -512,6 +524,21 @@
   </div>
 
   <script>
+    // --- Automatic Mobile Table Card Labels ---
+    function initMobileTableLabels() {
+      document.querySelectorAll(".table-container table").forEach(table => {
+        const headers = Array.from(table.querySelectorAll("thead th")).map(th => th.textContent.trim());
+        table.querySelectorAll("tbody tr").forEach(tr => {
+          tr.querySelectorAll("td").forEach((td, idx) => {
+            if (headers[idx] && !td.getAttribute("data-label")) {
+              td.setAttribute("data-label", headers[idx]);
+            }
+          });
+        });
+      });
+    }
+    document.addEventListener("DOMContentLoaded", initMobileTableLabels);
+
     // --- Dynamic Partner Profile Loading ---
     document.addEventListener("DOMContentLoaded", () => {
       const email = localStorage.getItem('stackly_email') || localStorage.getItem('userEmail') || localStorage.getItem('email') || localStorage.getItem('adminEmail');
