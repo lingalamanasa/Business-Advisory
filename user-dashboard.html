@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Executive Client Portal - STACKLY Business Advisory</title>
-  <link rel="stylesheet" href="dashboard.css?v=2.0">
+  <link rel="stylesheet" href="dashboard.css?v=3.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
@@ -526,40 +526,46 @@
           <!-- Profile Form -->
           <div class="table-container" style="margin-bottom: 0;">
             <h3 style="margin-bottom: 1.2rem; font-size: 1.2rem;"><i class="fa-regular fa-user" style="color: var(--primary-green);"></i> Executive Signatory Details</h3>
-            <form onsubmit="event.preventDefault(); window.location.href='404.html';">
+            <form id="executiveProfileForm" onsubmit="handleUserProfileSave(event)" novalidate>
               <div class="form-group">
-                <label>Full Executive Name</label>
+                <label for="userInputName">Full Executive Name</label>
                 <input type="text" id="userInputName" placeholder="Enter Full Executive Name">
+                <div class="field-error-msg" id="nameError"><i class="fa-solid fa-circle-exclamation"></i> <span>Please enter a valid executive name (at least 3 characters).</span></div>
               </div>
               <div class="form-group">
-                <label>Corporate Email (For Encrypted Memos)</label>
+                <label for="userInputEmail">Corporate Email (For Encrypted Memos)</label>
                 <input type="email" id="userInputEmail" placeholder="Enter Corporate Email">
+                <div class="field-error-msg" id="emailError"><i class="fa-solid fa-circle-exclamation"></i> <span>Please enter a valid corporate email address.</span></div>
               </div>
               <div class="form-group">
-                <label>Secure Direct Line</label>
+                <label for="userInputPhone">Secure Direct Line</label>
                 <input type="tel" id="userInputPhone" placeholder="+1 (212) 555-0190">
+                <div class="field-error-msg" id="phoneError"><i class="fa-solid fa-circle-exclamation"></i> <span>Please enter a valid direct line (at least 7 digits).</span></div>
               </div>
-              <button type="submit" class="btn-primary" style="margin-top: 0.5rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-save"></i> Save Executive Credentials</button>
+              <button type="submit" class="btn-primary" style="margin-top: 0.5rem;"><i class="fa-solid fa-save"></i> Save Executive Credentials</button>
             </form>
           </div>
 
           <!-- Password Form -->
           <div class="table-container" style="margin-bottom: 0;">
             <h3 style="margin-bottom: 1.2rem; font-size: 1.2rem;"><i class="fa-solid fa-lock" style="color: var(--primary-green);"></i> Change Portal Passcode</h3>
-            <form onsubmit="event.preventDefault(); window.location.href='404.html';">
+            <form id="changePasscodeForm" onsubmit="handleUserPasswordChange(event)" novalidate>
               <div class="form-group">
-                <label>Current Security Key</label>
-                <input type="password" id="userCurrentPwd" placeholder="••••••••" required>
+                <label for="userCurrentPwd">Current Security Key</label>
+                <input type="password" id="userCurrentPwd" placeholder="••••••••">
+                <div class="field-error-msg" id="currentPwdError"><i class="fa-solid fa-circle-exclamation"></i> <span>Current security key is required (min 6 characters).</span></div>
               </div>
               <div class="form-group">
-                <label>New Security Passcode (min 8 characters)</label>
-                <input type="password" id="userNewPwd" placeholder="New alphanumeric key" required minlength="8">
+                <label for="userNewPwd">New Security Passcode (min 8 characters)</label>
+                <input type="password" id="userNewPwd" placeholder="New alphanumeric key">
+                <div class="field-error-msg" id="newPwdError"><i class="fa-solid fa-circle-exclamation"></i> <span>Passcode must be at least 8 characters with letters & numbers.</span></div>
               </div>
               <div class="form-group">
-                <label>Confirm Security Passcode</label>
-                <input type="password" id="userConfirmPwd" placeholder="Confirm passcode" required>
+                <label for="userConfirmPwd">Confirm Security Passcode</label>
+                <input type="password" id="userConfirmPwd" placeholder="Confirm passcode">
+                <div class="field-error-msg" id="confirmPwdError"><i class="fa-solid fa-circle-exclamation"></i> <span>Passcodes do not match. Please verify your entry.</span></div>
               </div>
-              <button type="submit" class="btn-primary" style="margin-top: 0.5rem;" onclick="window.location.href='404.html'"><i class="fa-solid fa-key"></i> Update Security Credentials</button>
+              <button type="submit" class="btn-primary" style="margin-top: 0.5rem;"><i class="fa-solid fa-key"></i> Update Security Credentials</button>
             </form>
           </div>
         </div>
@@ -592,20 +598,23 @@
           <!-- Submit Ticket -->
           <div class="table-container" style="margin-bottom: 0;">
             <h3 style="margin-bottom: 1.2rem;"><i class="fa-solid fa-paper-plane" style="color: var(--primary-green);"></i> Submit Confidential Inquiry</h3>
-            <form onsubmit="event.preventDefault(); window.location.href='404.html';">
+            <form id="supportTicketForm" onsubmit="handleUserSubmitTicket(event)" novalidate>
               <div class="form-group">
-                <label>Advisory Topic / Scope</label>
-                <input type="text" id="userTicketSubject" placeholder="e.g. Schedule emergency valuation review" required>
+                <label for="userTicketSubject">Advisory Topic / Scope</label>
+                <input type="text" id="userTicketSubject" placeholder="e.g. Schedule emergency valuation review">
+                <div class="field-error-msg" id="ticketSubjectError"><i class="fa-solid fa-circle-exclamation"></i> <span>Please enter a descriptive advisory topic (at least 5 characters).</span></div>
               </div>
               <div class="form-group">
-                <label>Related Mandate Reference # (Optional)</label>
+                <label for="userTicketOrder">Related Mandate Reference # (Optional)</label>
                 <input type="text" id="userTicketOrder" placeholder="#ADV-89012">
+                <div class="field-error-msg" id="ticketOrderError"><i class="fa-solid fa-circle-exclamation"></i> <span>Reference should be at least 3 characters if provided.</span></div>
               </div>
               <div class="form-group">
-                <label>Executive Memo Details</label>
-                <textarea id="userTicketMsg" rows="4" placeholder="Detail your strategic question or briefing timeline..." required></textarea>
+                <label for="userTicketMsg">Executive Memo Details</label>
+                <textarea id="userTicketMsg" rows="4" placeholder="Detail your strategic question or briefing timeline..."></textarea>
+                <div class="field-error-msg" id="ticketMsgError"><i class="fa-solid fa-circle-exclamation"></i> <span>Please provide inquiry details (at least 15 characters).</span></div>
               </div>
-              <button type="submit" class="btn-primary" onclick="window.location.href='404.html'"><i class="fa-solid fa-headset"></i> Send to Advisory Desk</button>
+              <button type="submit" class="btn-primary"><i class="fa-solid fa-headset"></i> Send to Advisory Desk</button>
             </form>
           </div>
 
@@ -1116,11 +1125,82 @@
       showUserToast('New corporate card encrypted and registered!');
     }
 
-    // --- Profile & Password Saving ---
+    // --- Helper Validation Functions ---
+    function setFieldError(input, errorEl, msg) {
+      if (input) {
+        input.classList.add('is-invalid');
+        input.classList.remove('is-valid');
+      }
+      if (errorEl) {
+        const textSpan = errorEl.querySelector('span');
+        if (textSpan && msg) textSpan.textContent = msg;
+        errorEl.classList.add('visible');
+      }
+    }
+
+    function clearFieldError(input, errorEl) {
+      if (input) {
+        input.classList.remove('is-invalid');
+        input.classList.add('is-valid');
+      }
+      if (errorEl) {
+        errorEl.classList.remove('visible');
+      }
+    }
+
+    function resetFieldState(input, errorEl) {
+      if (input) {
+        input.classList.remove('is-invalid', 'is-valid');
+      }
+      if (errorEl) {
+        errorEl.classList.remove('visible');
+      }
+    }
+
+    // --- Profile Form Validation & Save ---
     function handleUserProfileSave(e) {
       e.preventDefault();
-      const name = document.getElementById('userInputName').value.trim();
-      const email = document.getElementById('userInputEmail').value.trim();
+      const nameInput = document.getElementById('userInputName');
+      const emailInput = document.getElementById('userInputEmail');
+      const phoneInput = document.getElementById('userInputPhone');
+
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const phoneError = document.getElementById('phoneError');
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const phone = phoneInput.value.trim();
+
+      let isValid = true;
+
+      // Validate Name
+      if (!name || name.length < 3) {
+        setFieldError(nameInput, nameError, 'Please enter a valid executive name (at least 3 characters).');
+        isValid = false;
+      } else {
+        clearFieldError(nameInput, nameError);
+      }
+
+      // Validate Email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        setFieldError(emailInput, emailError, 'Please enter a valid corporate email address (e.g. name@company.com).');
+        isValid = false;
+      } else {
+        clearFieldError(emailInput, emailError);
+      }
+
+      // Validate Phone (at least 7 digits)
+      const digitsOnly = phone.replace(/\D/g, '');
+      if (!phone || digitsOnly.length < 7) {
+        setFieldError(phoneInput, phoneError, 'Please enter a valid direct line (at least 7 digits).');
+        isValid = false;
+      } else {
+        clearFieldError(phoneInput, phoneError);
+      }
+
+      if (!isValid) return;
 
       const userHeader = document.getElementById('headerUserName');
       const sidebarName = document.getElementById('sidebarUserName');
@@ -1129,22 +1209,69 @@
       if (sidebarName) sidebarName.textContent = name;
       if (welcome) welcome.textContent = name;
 
+      const avatarInitial = name.charAt(0).toUpperCase();
+      document.querySelectorAll('.avatar-initial').forEach(el => el.textContent = avatarInitial);
+
       localStorage.setItem('stackly_name', name);
       localStorage.setItem('stackly_email', email);
-      showUserToast('Executive credentials updated!');
+      showUserToast('Executive credentials verified and updated!');
     }
 
+    // --- Password Form Validation & Update ---
     function handleUserPasswordChange(e) {
       e.preventDefault();
-      const newPwd = document.getElementById('userNewPwd').value;
-      const confirmPwd = document.getElementById('userConfirmPwd').value;
-      if (newPwd !== confirmPwd) {
-        alert('Passcodes do not match. Please verify your entries.');
-        return;
+      const currentPwdInput = document.getElementById('userCurrentPwd');
+      const newPwdInput = document.getElementById('userNewPwd');
+      const confirmPwdInput = document.getElementById('userConfirmPwd');
+
+      const currentPwdError = document.getElementById('currentPwdError');
+      const newPwdError = document.getElementById('newPwdError');
+      const confirmPwdError = document.getElementById('confirmPwdError');
+
+      const currentPwd = currentPwdInput.value;
+      const newPwd = newPwdInput.value;
+      const confirmPwd = confirmPwdInput.value;
+
+      let isValid = true;
+
+      // Validate Current Password
+      if (!currentPwd || currentPwd.length < 6) {
+        setFieldError(currentPwdInput, currentPwdError, 'Current security key is required (at least 6 characters).');
+        isValid = false;
+      } else {
+        clearFieldError(currentPwdInput, currentPwdError);
       }
-      document.getElementById('userCurrentPwd').value = '';
-      document.getElementById('userNewPwd').value = '';
-      document.getElementById('userConfirmPwd').value = '';
+
+      // Validate New Password (at least 8 chars with letter and number)
+      const hasLetterAndNum = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
+      if (!newPwd || !hasLetterAndNum.test(newPwd)) {
+        setFieldError(newPwdInput, newPwdError, 'Passcode must be at least 8 characters with letters & numbers.');
+        isValid = false;
+      } else {
+        clearFieldError(newPwdInput, newPwdError);
+      }
+
+      // Validate Confirm Password
+      if (!confirmPwd) {
+        setFieldError(confirmPwdInput, confirmPwdError, 'Please confirm your new security passcode.');
+        isValid = false;
+      } else if (newPwd !== confirmPwd) {
+        setFieldError(confirmPwdInput, confirmPwdError, 'Passcodes do not match. Please verify your entry.');
+        isValid = false;
+      } else {
+        clearFieldError(confirmPwdInput, confirmPwdError);
+      }
+
+      if (!isValid) return;
+
+      currentPwdInput.value = '';
+      newPwdInput.value = '';
+      confirmPwdInput.value = '';
+
+      resetFieldState(currentPwdInput, currentPwdError);
+      resetFieldState(newPwdInput, newPwdError);
+      resetFieldState(confirmPwdInput, confirmPwdError);
+
       showUserToast('Executive portal passcode updated securely!');
     }
 
@@ -1160,14 +1287,50 @@
       }
     }
 
-    // --- Support Ticket Submission ---
+    // --- Support Ticket Submission & Validation ---
     function handleUserSubmitTicket(e) {
       e.preventDefault();
-      const subject = document.getElementById('userTicketSubject').value.trim();
-      const order = document.getElementById('userTicketOrder').value.trim();
-      const msg = document.getElementById('userTicketMsg').value.trim();
-      const ticketId = '#TK-' + Math.floor(1000 + Math.random() * 9000);
+      const subjectInput = document.getElementById('userTicketSubject');
+      const orderInput = document.getElementById('userTicketOrder');
+      const msgInput = document.getElementById('userTicketMsg');
 
+      const subjectError = document.getElementById('ticketSubjectError');
+      const orderError = document.getElementById('ticketOrderError');
+      const msgError = document.getElementById('ticketMsgError');
+
+      const subject = subjectInput.value.trim();
+      const order = orderInput.value.trim();
+      const msg = msgInput.value.trim();
+
+      let isValid = true;
+
+      // Validate Subject
+      if (!subject || subject.length < 5) {
+        setFieldError(subjectInput, subjectError, 'Please enter a descriptive advisory topic (at least 5 characters).');
+        isValid = false;
+      } else {
+        clearFieldError(subjectInput, subjectError);
+      }
+
+      // Validate Optional Order Reference
+      if (order && order.length < 3) {
+        setFieldError(orderInput, orderError, 'Reference should be at least 3 characters if provided.');
+        isValid = false;
+      } else {
+        clearFieldError(orderInput, orderError);
+      }
+
+      // Validate Message Details
+      if (!msg || msg.length < 15) {
+        setFieldError(msgInput, msgError, 'Please provide inquiry details (at least 15 characters).');
+        isValid = false;
+      } else {
+        clearFieldError(msgInput, msgError);
+      }
+
+      if (!isValid) return;
+
+      const ticketId = '#TK-' + Math.floor(1000 + Math.random() * 9000);
       const list = document.getElementById('userTicketsList');
       const div = document.createElement('div');
       div.style = 'padding: 1rem; border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 1rem; background: #fafafa;';
@@ -1180,12 +1343,44 @@
       `;
       list.prepend(div);
 
-      document.getElementById('userTicketSubject').value = '';
-      document.getElementById('userTicketOrder').value = '';
-      document.getElementById('userTicketMsg').value = '';
+      subjectInput.value = '';
+      orderInput.value = '';
+      msgInput.value = '';
+
+      resetFieldState(subjectInput, subjectError);
+      resetFieldState(orderInput, orderError);
+      resetFieldState(msgInput, msgError);
 
       showUserToast(`Inquiry ${ticketId} logged! An advisory partner has been notified.`);
     }
+
+    // Real-time live error removal on user input
+    document.addEventListener("DOMContentLoaded", () => {
+      const liveInputs = [
+        { id: 'userInputName', errorId: 'nameError' },
+        { id: 'userInputEmail', errorId: 'emailError' },
+        { id: 'userInputPhone', errorId: 'phoneError' },
+        { id: 'userCurrentPwd', errorId: 'currentPwdError' },
+        { id: 'userNewPwd', errorId: 'newPwdError' },
+        { id: 'userConfirmPwd', errorId: 'confirmPwdError' },
+        { id: 'userTicketSubject', errorId: 'ticketSubjectError' },
+        { id: 'userTicketOrder', errorId: 'ticketOrderError' },
+        { id: 'userTicketMsg', errorId: 'ticketMsgError' }
+      ];
+
+      liveInputs.forEach(item => {
+        const el = document.getElementById(item.id);
+        const err = document.getElementById(item.errorId);
+        if (el && err) {
+          el.addEventListener('input', () => {
+            if (el.classList.contains('is-invalid')) {
+              el.classList.remove('is-invalid');
+              err.classList.remove('visible');
+            }
+          });
+        }
+      });
+    });
 
     // --- Toast Functionality ---
     function showUserToast(message) {

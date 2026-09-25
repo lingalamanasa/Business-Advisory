@@ -455,6 +455,41 @@ tbody tr:hover { background: rgba(0,0,0,0.01); }
   font-size: 1.2rem;
 }
 
+/* Form Validation Styling */
+.form-group {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+.form-group input.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: #ef4444 !important;
+  background-color: #fffafb !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12) !important;
+}
+.form-group input.is-valid,
+.form-group textarea.is-valid {
+  border-color: #10b981 !important;
+  background-color: #f6fdf9 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12) !important;
+}
+.field-error-msg {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  color: #dc2626;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-top: 0.4rem;
+  transition: all 0.2s ease;
+}
+.field-error-msg.visible {
+  display: flex !important;
+}
+.field-error-msg i {
+  font-size: 0.85rem;
+  color: #dc2626;
+}
+
 .product-cell {
   display: flex;
   align-items: center;
