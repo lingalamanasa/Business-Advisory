@@ -10,11 +10,11 @@
   --primary-yellow-subtle: rgba(234, 179, 8, 0.12);
   --dark-text: #09090b;
   --light-text: #ffffff;
-  --gray-text: #d4d4d8;
+  --gray-text: #4b5563;
   --bg-dark: #000000;
   --bg-light: #fafafa;
   --text-dark: #18181b;
-  --text-gray: #52525b;
+  --text-gray: #4b5563;
   --border-color: #e4e4e7;
 }
 
@@ -44,6 +44,11 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #6b7280;
+  opacity: 1;
 }
 
 /* Brand Logo Constraints */
@@ -375,7 +380,7 @@ nav a.active {
 .description {
   font-size: 1.25rem;
   line-height: 1.6;
-  color: var(--gray-text);
+  color: #e4e4e7;
   margin-bottom: 3rem;
 }
 
@@ -1170,8 +1175,18 @@ html.menu-open {
   .features { gap: 1.8rem; }
 }
 
+.nav-drawer-arrow {
+  display: none !important;
+}
+
 /* Tablet & Mobile Nav Breakpoint (992px) */
 @media (max-width: 992px) {
+  .nav-drawer-arrow {
+    display: inline-block !important;
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--primary-green);
+  }
   .hero h1 { font-size: clamp(2.3rem, 5.5vw, 3.5rem); }
   .hero { padding: 8rem 5% 4rem; }
   .features { gap: 1.5rem; }
@@ -2172,6 +2187,7 @@ html.menu-open {
 .featured-post-content { flex: 1; padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
 .featured-post-content .badge { display: inline-block; background: rgba(234, 179, 8, 0.1); color: var(--primary-green); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; width: max-content;}
 .featured-post-content h2 { font-size: 2.2rem; margin-bottom: 1rem; color: var(--dark-text); line-height: 1.3; }
+.featured-post-content p { color: #374151; font-size: 1.05rem; line-height: 1.65; margin-bottom: 1.5rem; }
 
 .article-grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem; }
 

@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.appendChild(navOverlay);
         }
 
-        // Add Font Awesome arrow icons to nav links if not present (pure FA icons)
+        // Add Font Awesome arrow icons to nav links for mobile drawer only (pure FA icons)
         nav.querySelectorAll("ul li a").forEach(a => {
-            if (!a.querySelector("i")) {
+            if (!a.querySelector(".nav-drawer-arrow")) {
                 const arrow = document.createElement("i");
-                arrow.className = "fa-solid fa-arrow-right";
+                arrow.className = "fa-solid fa-arrow-right nav-drawer-arrow";
                 arrow.setAttribute("aria-hidden", "true");
                 a.appendChild(arrow);
             }
