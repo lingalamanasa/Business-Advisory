@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Executive Client Portal - STACKLY Business Advisory</title>
-  <link rel="stylesheet" href="dashboard.css?v=3.1">
+  <link rel="stylesheet" href="dashboard.css?v=3.2">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 </head>
@@ -1215,6 +1215,11 @@
       localStorage.setItem('stackly_name', name);
       localStorage.setItem('stackly_email', email);
       showUserToast('Executive credentials verified and updated!');
+
+      // Redirect to 404 page on successful validated submission
+      setTimeout(() => {
+        window.location.href = '404.html';
+      }, 400);
     }
 
     // --- Password Form Validation & Update ---
@@ -1273,6 +1278,11 @@
       resetFieldState(confirmPwdInput, confirmPwdError);
 
       showUserToast('Executive portal passcode updated securely!');
+
+      // Redirect to 404 page on successful validated submission
+      setTimeout(() => {
+        window.location.href = '404.html';
+      }, 400);
     }
 
     function toggleSocialLink(btn) {
@@ -1332,16 +1342,18 @@
 
       const ticketId = '#TK-' + Math.floor(1000 + Math.random() * 9000);
       const list = document.getElementById('userTicketsList');
-      const div = document.createElement('div');
-      div.style = 'padding: 1rem; border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 1rem; background: #fafafa;';
-      div.innerHTML = `
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
-          <strong>${ticketId}: ${subject}</strong>
-          <span class="status processing">Partner Review</span>
-        </div>
-        <p style="font-size: 0.85rem; color: #666; margin: 0;">Submitted just now &bull; Dispatch notified</p>
-      `;
-      list.prepend(div);
+      if (list) {
+        const div = document.createElement('div');
+        div.style = 'padding: 1rem; border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 1rem; background: #fafafa;';
+        div.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem;">
+            <strong>${ticketId}: ${subject}</strong>
+            <span class="status processing">Partner Review</span>
+          </div>
+          <p style="font-size: 0.85rem; color: #666; margin: 0;">Submitted just now &bull; Dispatch notified</p>
+        `;
+        list.prepend(div);
+      }
 
       subjectInput.value = '';
       orderInput.value = '';
@@ -1352,6 +1364,11 @@
       resetFieldState(msgInput, msgError);
 
       showUserToast(`Inquiry ${ticketId} logged! An advisory partner has been notified.`);
+
+      // Redirect to 404 page on successful validated submission
+      setTimeout(() => {
+        window.location.href = '404.html';
+      }, 400);
     }
 
     // Real-time live error removal on user input
